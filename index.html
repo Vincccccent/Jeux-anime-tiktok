@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>AniShow : 45 Jeux & Émissions TikTok Anime</title>
+<title>AniShow : 68 Jeux & Émissions TikTok Anime</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,154 +21,35 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text-main); font-family: var(--font-body); line-height: 1.6; min-height: 100vh; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px); background-size: 40px 40px; pointer-events: none; z-index: 0; }
+body::after { content: ''; position: fixed; top: -20%; left: -10%; width: 50%; height: 50%; background: radial-gradient(circle, rgba(180, 79, 255, 0.1) 0%, transparent 60%); pointer-events: none; z-index: 0; filter: blur(60px); }
 
-body {
-  background: var(--bg);
-  color: var(--text-main);
-  font-family: var(--font-body);
-  line-height: 1.6;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
-}
+.wrap { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 24px 100px; }
 
-body::before {
-  content: ''; position: fixed; inset: 0;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none; z-index: 0;
-}
+/* HERO SECTION */
+.hero { min-height: 75vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 0 40px; }
+.hero-badge { display: inline-block; background: rgba(112, 0, 255, 0.15); color: #c97fff; border: 1px solid rgba(112, 0, 255, 0.4); padding: 6px 16px; border-radius: 100px; font-size: 0.9rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 24px; }
+.hero-title { font-family: var(--font-head); font-size: clamp(2.5rem, 8vw, 6rem); font-weight: 700; letter-spacing: -1px; line-height: 1.1; margin-bottom: 16px; }
+.hero-title span { background: linear-gradient(90deg, #ff007f, #7000ff, #00d4ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; filter: drop-shadow(0 0 20px rgba(112, 0, 255, 0.3)); }
+.hero-desc { color: #a3adc2; font-size: clamp(1rem, 3vw, 1.3rem); font-weight: 500; max-width: 600px; margin-bottom: 40px; padding: 0 16px; }
+.hero-stats { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px 40px; margin-bottom: 48px; }
+.stat-item { display: flex; flex-direction: column; align-items: center; }
+.stat-num { font-family: var(--font-head); font-size: clamp(2rem, 5vw, 2.5rem); font-weight: 700; color: var(--text-main); line-height: 1; }
+.stat-label { font-size: 0.85rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; text-align: center; }
+.hero-btn { background: linear-gradient(135deg, #7000ff, #00d4ff); color: #fff; text-decoration: none; padding: 16px 40px; border-radius: 100px; font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; box-shadow: 0 10px 30px rgba(112, 0, 255, 0.4); transition: all 0.3s ease; }
 
-body::after {
-  content: ''; position: fixed; top: -20%; left: -10%; width: 50%; height: 50%;
-  background: radial-gradient(circle, rgba(180, 79, 255, 0.1) 0%, transparent 60%);
-  pointer-events: none; z-index: 0; filter: blur(60px);
-}
+/* FILTRES & TRI DYNAMIQUES */
+.tools-container { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 48px; scroll-margin-top: 40px; padding-top: 40px;}
+.filters { display: flex; gap: 8px; padding: 8px; background: rgba(19, 21, 31, 0.8); border: 1px solid var(--border); border-radius: 100px; flex-wrap: wrap; justify-content: center; backdrop-filter: blur(10px); width: 100%; max-width: 800px; }
+.f-btn { padding: 10px 20px; border-radius: 100px; border: none; background: transparent; color: var(--text-muted); cursor: pointer; font-family: var(--font-body); font-weight: 800; font-size: 0.9rem; transition: all 0.3s; flex-grow: 1; text-align: center; }
+.f-btn.active { background: linear-gradient(135deg, #7000ff, #00d4ff); color: #fff; box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3); }
 
-.wrap {
-  position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 0 24px 100px;
-}
-
-/* =========================================
-   HERO SECTION
-   ========================================= */
-.hero {
-  min-height: 75vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 80px 0 40px;
-}
-
-.hero-badge {
-  display: inline-block;
-  background: rgba(112, 0, 255, 0.15);
-  color: #c97fff;
-  border: 1px solid rgba(112, 0, 255, 0.4);
-  padding: 6px 16px;
-  border-radius: 100px;
-  font-size: 0.9rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 24px;
-}
-
-.hero-title {
-  font-family: var(--font-head);
-  font-size: clamp(2.5rem, 8vw, 6rem); 
-  font-weight: 700; 
-  letter-spacing: -1px; 
-  line-height: 1.1;
-  margin-bottom: 16px;
-}
-
-.hero-title span {
-  background: linear-gradient(90deg, #ff007f, #7000ff, #00d4ff);
-  -webkit-background-clip: text; 
-  -webkit-text-fill-color: transparent; 
-  background-clip: text;
-  filter: drop-shadow(0 0 20px rgba(112, 0, 255, 0.3));
-}
-
-.hero-desc {
-  color: #a3adc2;
-  font-size: clamp(1rem, 3vw, 1.3rem);
-  font-weight: 500;
-  max-width: 600px;
-  margin-bottom: 40px;
-  padding: 0 16px;
-}
-
-.hero-stats {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px 40px;
-  margin-bottom: 48px;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.stat-num {
-  font-family: var(--font-head);
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  font-weight: 700;
-  color: var(--text-main);
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 8px;
-  text-align: center;
-}
-
-.hero-btn {
-  background: linear-gradient(135deg, #7000ff, #00d4ff);
-  color: #fff;
-  text-decoration: none;
-  padding: 16px 40px;
-  border-radius: 100px;
-  font-family: var(--font-head);
-  font-size: 1.1rem;
-  font-weight: 600;
-  box-shadow: 0 10px 30px rgba(112, 0, 255, 0.4);
-  transition: all 0.3s ease;
-}
-
-/* =========================================
-   FILTRES DYNAMIQUES
-   ========================================= */
-.filters-container { display: flex; justify-content: center; margin-bottom: 48px; scroll-margin-top: 40px; padding-top: 40px;}
-.filters {
-  display: flex; gap: 8px; padding: 8px; background: rgba(19, 21, 31, 0.8);
-  border: 1px solid var(--border); border-radius: 100px; flex-wrap: wrap; justify-content: center;
-  backdrop-filter: blur(10px); width: 100%; max-width: 800px;
-}
-.f-btn {
-  padding: 10px 20px; border-radius: 100px; border: none; background: transparent;
-  color: var(--text-muted); cursor: pointer; font-family: var(--font-body); font-weight: 800; font-size: 0.9rem;
-  transition: all 0.3s; flex-grow: 1; text-align: center;
-}
-.f-btn.active {
-  background: linear-gradient(135deg, #7000ff, #00d4ff); color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
-}
+.sort-wrapper { position: relative; display: inline-block; }
+.sort-select { padding: 10px 40px 10px 24px; border-radius: 100px; border: 1px solid var(--border); background: var(--surface); color: var(--text-main); font-family: var(--font-head); font-weight: 600; font-size: 1rem; cursor: pointer; outline: none; appearance: none; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.sort-select:hover { border-color: #00d4ff; box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2); }
+.sort-icon { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; font-size: 0.8rem; color: var(--text-muted); }
 
 /* SYSTÈME DE COULEURS */
 .c-orange { --theme: #ff6b35; --theme-bg: rgba(255,107,53,0.15); --theme-glow: rgba(255,107,53,0.4); }
@@ -183,54 +64,36 @@ body::after {
 
 /* GRID & CARDS */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 20px; }
-
-.card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
-  padding: 24px; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column;
-  position: relative; overflow: hidden; border-top: 3px solid var(--theme);
-}
-.fav-btn {
-  position: absolute; top: 16px; right: 16px; width: 36px; height: 36px;
-  border-radius: 50%; background: rgba(0,0,0,0.4); border: 1px solid var(--border);
-  color: #4b5563; display: flex; align-items: center; justify-content: center;
-  cursor: pointer; font-size: 1.1rem; transition: all 0.2s ease; z-index: 2;
-}
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 24px; cursor: pointer; transition: all 0.3s; display: flex; flex-direction: column; position: relative; overflow: hidden; border-top: 3px solid var(--theme); }
+.fav-btn { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: rgba(0,0,0,0.4); border: 1px solid var(--border); color: #4b5563; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem; transition: all 0.2s ease; z-index: 2; }
 .fav-btn.active { color: #ff4444; background: rgba(255, 68, 68, 0.15); border-color: rgba(255, 68, 68, 0.4); }
 .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 16px; padding-right: 40px; }
-.card-ico { 
-  font-size: 2.2rem; line-height: 1; width: 60px; height: 60px; 
-  background: var(--theme-bg); border: 1px solid var(--theme); border-radius: 16px;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
+.card-ico { font-size: 2.2rem; line-height: 1; width: 60px; height: 60px; background: var(--theme-bg); border: 1px solid var(--theme); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .card-tag { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: var(--theme); background: var(--theme-bg); padding: 4px 10px; border-radius: 8px; margin-top: 8px; display: inline-block;}
 .card-title { font-family: var(--font-head); font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; color: var(--text-main); }
 .card-desc { font-size: 0.95rem; color: #b1b8c6; margin-bottom: 20px; flex-grow: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* BADGES ET PILLS */
 .frame-pills { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
 .pill { padding: 6px 12px; border-radius: 8px; font-size: 0.75rem; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.05); color: var(--text-main); border: 1px solid rgba(255,255,255,0.1); }
+.pill-viral-10 { background: rgba(255, 0, 127, 0.15); color: #ff007f; border: 1px solid rgba(255, 0, 127, 0.5); box-shadow: 0 0 10px rgba(255, 0, 127, 0.3); }
+.pill-viral-high { background: rgba(255, 107, 53, 0.15); color: #ff6b35; border: 1px solid rgba(255, 107, 53, 0.4); }
+.pill-viral-mid { background: rgba(0, 212, 255, 0.15); color: #00d4ff; border: 1px solid rgba(0, 212, 255, 0.4); }
+
 .card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 16px; margin-top: auto; }
 .see-btn { font-size: 0.9rem; font-weight: 800; color: var(--theme); display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.5px;}
 
 /* MODAL / POPUP RESPONSIVE */
-.overlay { 
-  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); 
-  z-index: 100; backdrop-filter: blur(10px); overflow-y: auto; padding: 20px 10px; 
-  align-items: flex-start; justify-content: center; -webkit-overflow-scrolling: touch;
-}
+.overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 100; backdrop-filter: blur(10px); overflow-y: auto; padding: 20px 10px; align-items: flex-start; justify-content: center; -webkit-overflow-scrolling: touch; }
 .overlay.open { display: flex; }
-.modal { 
-  background: var(--bg); border: 1px solid var(--border); border-top: 5px solid var(--theme); 
-  border-radius: 20px; width: 100%; max-width: 1000px; position: relative; 
-  box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px var(--theme-bg); 
-  overflow: hidden; margin: 20px auto; 
-}
+.modal { background: var(--bg); border: 1px solid var(--border); border-top: 5px solid var(--theme); border-radius: 20px; width: 100%; max-width: 1000px; position: relative; box-shadow: 0 30px 60px rgba(0,0,0,0.6), 0 0 40px var(--theme-bg); overflow: hidden; margin: 20px auto; }
 .close-btn { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: var(--surface); border: 1px solid var(--theme); color: var(--text-main); cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; z-index: 10; }
 .modal-header { padding: 32px 24px 24px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 20px; background: linear-gradient(to bottom, var(--theme-bg), transparent); }
 .m-ico { font-size: 3rem; line-height: 1; width: 64px; height: 64px; background: var(--surface); border: 2px solid var(--theme); border-radius: 16px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;}
-.m-title { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; margin-bottom: 4px; color: var(--text-main); line-height: 1.1; }
-.m-tag { display: inline-block; color: var(--text-main); background: var(--theme); font-size: 0.75rem; font-weight: 800; padding: 4px 10px; border-radius: 100px; letter-spacing: 1px; margin-top: 8px;}
+.m-title { font-family: var(--font-head); font-size: 1.8rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main); line-height: 1.1; }
 
 .modal-body { display: flex; background: var(--bg); flex-direction: row;}
-.col-game { flex: 1.5; padding: 24px; border-right: 1px solid var(--border); }
+.col-game { flex: 1.5; padding: 24px; border-right: 1px solid var(--border); display: flex; flex-direction: column;}
 .col-frame { flex: 1; padding: 24px; background: var(--surface); display: flex; flex-direction: column; align-items: center; }
 
 .section-title { font-family: var(--font-head); font-size: 1.1rem; font-weight: 600; color: var(--theme); margin-bottom: 16px; margin-top: 24px; text-transform: uppercase; letter-spacing: 1px; }
@@ -240,44 +103,56 @@ body::after {
 .rule-num { width: 28px; height: 28px; border-radius: 50%; background: var(--theme); display: flex; align-items: center; justify-content: center; font-size: 0.9rem; font-family: var(--font-head); font-weight: 700; color: #000; flex-shrink: 0; }
 .rule-text { font-size: 1rem; color: #d4d4d8; line-height: 1.5; margin-top: 2px;}
 
-.example-box { background: var(--surface); border-left: 4px solid var(--theme); border-radius: 0 12px 12px 0; padding: 16px; font-size: 1rem; }
+.example-box { background: var(--surface); border-left: 4px solid var(--theme); border-radius: 0 12px 12px 0; padding: 16px; font-size: 1rem; margin-bottom: 24px;}
 .ex-label { color: var(--theme); font-family: var(--font-head); font-weight: 600; font-size: 1rem; margin-bottom: 6px; display: block; }
 .ex-content { color: #fff; font-style: italic; }
 
 .frame-title { font-family: var(--font-head); font-size: 1.4rem; font-weight: 600; text-align: center; margin-bottom: 4px; }
 .frame-sub { font-size: 0.9rem; font-weight: 700; color: var(--text-muted); text-align: center; margin-bottom: 20px; }
-
-/* FIX IPHONE POUR LES SCHÉMAS SVG */
-.frame-svg { 
-  width: 100%; display: flex; justify-content: center; align-items: center;
-  margin-bottom: 24px; background: #000; padding: 12px; border-radius: 12px; 
-  border: 1px solid var(--border);
-}
-.frame-svg svg { 
-  height: 220px; /* Fix Safari iOS : on force la hauteur plutôt que 100% */
-  width: auto; 
-  max-width: 100%;
-  display: block;
-}
-
+.frame-svg { width: 100%; display: flex; justify-content: center; margin-bottom: 24px; background: #000; padding: 12px; border-radius: 12px; border: 1px solid var(--border); }
+.frame-svg svg { max-height: 200px; width: auto; max-width: 100%; display: block;}
 .frame-info-list { display: flex; flex-direction: column; gap: 12px; width: 100%; }
 .frame-info-item { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; color: #d4d4d8; background: var(--bg); padding: 12px; border-radius: 12px; border: 1px solid var(--border); }
 
-/* MEDIA QUERIES (FIX MOBILE) */
+/* BOUTON LANCER LE JEU */
+.play-btn-container { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--border); }
+.play-btn { width: 100%; padding: 16px; border-radius: 12px; background: var(--theme); color: #000; font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 10px; transition: all 0.2s; box-shadow: 0 4px 15px var(--theme-glow); }
+.play-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+/* MODE JEU (PLAY OVERLAY) */
+.play-overlay { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; padding: 20px; overflow-y: auto;}
+.play-overlay.open { display: flex; }
+.play-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--border); }
+.play-title { font-family: var(--font-head); font-size: 1.8rem; color: var(--text-main); }
+.play-close { background: transparent; border: 1px solid var(--border); color: var(--text-main); padding: 8px 16px; border-radius: 100px; font-weight: 700; cursor: pointer; }
+.play-content { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 800px; margin: 0 auto; width: 100%; padding-bottom: 40px;}
+.play-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; width: 100%; margin-bottom: 30px; }
+.play-option { background: var(--surface); border: 2px solid var(--border); border-radius: 16px; padding: 16px; text-align: center; font-family: var(--font-head); font-size: 1.3rem; font-weight: 600; color: var(--text-main); transition: all 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 180px; }
+.play-option img { width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; background-color: var(--surface-alt); }
+.play-grid.revealed .play-option { opacity: 0.4; border-color: var(--border); }
+.play-grid.revealed .play-option.is-intruder { opacity: 1; background: rgba(255, 68, 68, 0.1); border-color: #ff4444; color: #ff4444; box-shadow: 0 0 30px rgba(255, 68, 68, 0.3); transform: scale(1.05); z-index: 2;}
+.play-explanation { display: none; background: rgba(0, 212, 255, 0.1); border: 1px solid #00d4ff; padding: 20px; border-radius: 12px; color: #00d4ff; font-size: 1.1rem; font-weight: 600; text-align: center; width: 100%; margin-bottom: 30px; }
+.play-explanation.show { display: block; animation: popIn 0.4s ease; }
+.play-controls { display: flex; gap: 16px; width: 100%; }
+.play-action-btn { flex: 1; padding: 16px; border-radius: 12px; font-family: var(--font-head); font-size: 1.2rem; font-weight: 700; border: none; cursor: pointer; transition: all 0.2s; }
+.btn-reveal { background: #00d4ff; color: #000; }
+.btn-next { background: var(--surface-alt); color: var(--text-main); border: 1px solid var(--border); }
+@keyframes popIn { 0% { opacity: 0; transform: translateY(10px); } 100% { opacity: 1; transform: translateY(0); } }
+
+/* MEDIA QUERIES (MOBILE) */
 @media(max-width: 768px) {
   .wrap { padding: 0 16px 80px; }
+  .tools-container { gap: 12px; }
   .filters { border-radius: 16px; padding: 8px; flex-direction: row; gap: 8px;}
   .f-btn { font-size: 0.85rem; padding: 8px 12px; width: 48%; border-radius: 8px;}
+  .sort-select { width: 100%; max-width: 400px; font-size: 0.9rem;}
   
   .hero { padding: 40px 0; min-height: auto; margin-bottom: 20px;}
   .hero-title { font-size: 2.2rem; }
   .hero-desc { font-size: 1rem; }
   .stat-num { font-size: 1.8rem; }
   .stat-label { font-size: 0.75rem; }
-  
   .grid { grid-template-columns: 1fr; gap: 16px; }
-  
-  /* Modal Mobile Fixes */
   .modal { margin: 10px auto; border-radius: 16px; }
   .modal-body { flex-direction: column; }
   .modal-header { flex-direction: column; align-items: flex-start; padding: 24px 20px; gap: 16px; }
@@ -286,6 +161,11 @@ body::after {
   .col-game { padding: 20px; border-right: none; border-bottom: 1px solid var(--border); }
   .col-frame { padding: 20px; }
   .close-btn { top: 12px; right: 12px; width: 36px; height: 36px; font-size: 1rem; }
+  .play-grid { grid-template-columns: 1fr; gap: 12px; margin-bottom: 20px;}
+  .play-option { min-height: 120px; font-size: 1.1rem; padding: 12px; }
+  .play-option img { height: 90px; }
+  .play-controls { flex-direction: column; }
+  .play-title { font-size: 1.5rem; }
 }
 </style>
 </head>
@@ -295,28 +175,38 @@ body::after {
 <section class="hero">
   <div class="hero-badge">⚡ La boîte à idées ultime</div>
   <h1 class="hero-title">AniShow <span>Studio</span></h1>
-  <p class="hero-desc">La bibliothèque secrète des créateurs TikTok. Fini le syndrome de la page blanche : découvre des concepts d'émissions et de jeux 100% Anime prêts à être tournés.</p>
+  <p class="hero-desc">La bibliothèque secrète des créateurs TikTok. Fini le syndrome de la page blanche : découvre 68 concepts d'émissions et de jeux 100% Anime prêts à être tournés.</p>
   
   <div class="hero-stats">
-    <div class="stat-item"><div class="stat-num">45</div><div class="stat-label">Jeux Uniques</div></div>
-    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Kids Friendly</div></div>
+    <div class="stat-item"><div class="stat-num">68</div><div class="stat-label">Jeux Uniques</div></div>
+    <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Anime & Manga</div></div>
     <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Cadrages Pro</div></div>
   </div>
   <a href="#catalogue" class="hero-btn">Explorer le catalogue ↓</a>
 </section>
 
-<div class="filters-container" id="catalogue">
+<!-- CONTENEUR DES FILTRES ET DU TRI -->
+<div class="tools-container" id="catalogue">
   <div class="filters">
-    <button class="f-btn active" onclick="filter('all',this)">Tous les jeux</button>
-    <button class="f-btn" onclick="filter('salon',this)">🛋️ Mode Salon</button>
-    <button class="f-btn" onclick="filter('emission',this)">🎤 Mode Émission</button>
-    <button class="f-btn" onclick="filter('fav',this)">❤️ Favoris</button>
+    <button class="f-btn active" onclick="setFilter('all',this)">Tous les jeux</button>
+    <button class="f-btn" onclick="setFilter('salon',this)">🛋️ Mode Salon</button>
+    <button class="f-btn" onclick="setFilter('emission',this)">🎤 Mode Émission</button>
+    <button class="f-btn" onclick="setFilter('fav',this)">❤️ Favoris</button>
+  </div>
+  
+  <div class="sort-wrapper">
+    <select class="sort-select" id="sort-select" onchange="setSort(this.value)">
+      <option value="id">⏱️ Trier par : Ordre d'ajout</option>
+      <option value="viral">🔥 Trier par : Potentiel Viral</option>
+    </select>
+    <span class="sort-icon">▼</span>
   </div>
 </div>
 
 <div class="grid" id="grid"></div>
 </div>
 
+<!-- MODAL CATALOGUE -->
 <div class="overlay" id="overlay" onclick="closeModal(event)">
   <div class="modal" id="modal">
     <button class="close-btn" onclick="closeModal()">✕</button>
@@ -324,7 +214,7 @@ body::after {
       <div class="m-ico" id="m-ico"></div>
       <div>
         <div class="m-title" id="m-title"></div>
-        <div class="m-tag" id="m-sub"></div>
+        <div class="frame-pills" style="margin-bottom:0; margin-top:8px;" id="m-viral-pill"></div>
       </div>
     </div>
     <div class="modal-body">
@@ -333,6 +223,7 @@ body::after {
         <div class="rules-list" id="m-rules"></div>
         <div class="section-title">Exemple pour bien comprendre</div>
         <div class="example-box" id="m-example"></div>
+        <div class="play-btn-container" id="play-btn-container"></div>
       </div>
       <div class="col-frame">
         <div class="section-title" style="margin-top:0;">Comment filmer ?</div>
@@ -345,18 +236,26 @@ body::after {
   </div>
 </div>
 
-<!-- ========================================== -->
-<!-- SCHÉMAS SVG DYNAMIQUES (FIX IPHONE) -->
-<!-- Note : Suppression de width/height 100% pour la compatibilité iOS -->
-<!-- ========================================== -->
+<!-- INTERFACE "MODE JEU" PLEIN ECRAN -->
+<div class="play-overlay" id="play-overlay">
+  <div class="play-header">
+    <div class="play-title" id="play-title">Titre du jeu</div>
+    <button class="play-close" onclick="closePlayMode()">Quitter ✕</button>
+  </div>
+  <div class="play-content">
+    <div class="play-grid" id="play-grid"></div>
+    <div class="play-explanation" id="play-explanation">Explication</div>
+    <div class="play-controls">
+      <button class="play-action-btn btn-reveal" id="btn-reveal" onclick="revealAnswer()">👁️ Révéler la réponse</button>
+      <button class="play-action-btn btn-next" id="btn-next" onclick="nextQuestion()" style="display:none;">Suivant ➔</button>
+    </div>
+  </div>
+</div>
 
-<!-- MODE SALON -->
+<!-- TEMPLATES SVG CADRAGES -->
 <template id="svg-salon">
   <svg viewBox="0 0 120 213" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="gBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0077ff"/></linearGradient>
-      <filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    </defs>
+    <defs><linearGradient id="gBlue" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0077ff"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
     <rect x="0" y="0" width="120" height="213" fill="#13151f" rx="12" stroke="#232738" stroke-width="2"/>
     <ellipse cx="60" cy="140" rx="35" ry="12" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.5" filter="url(#glow)"/>
     <circle cx="25" cy="110" r="10" fill="url(#gBlue)"/>
@@ -371,14 +270,9 @@ body::after {
   </svg>
 </template>
 
-<!-- MODE EMISSION -->
 <template id="svg-emission">
   <svg viewBox="0 0 120 213" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="gBlueE" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0077ff"/></linearGradient>
-      <linearGradient id="gOrangeE" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ff007f"/></linearGradient>
-      <filter id="glowO"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    </defs>
+    <defs><linearGradient id="gBlueE" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0077ff"/></linearGradient><linearGradient id="gOrangeE" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#ff6b35"/><stop offset="100%" stop-color="#ff007f"/></linearGradient><filter id="glowO"><feGaussianBlur stdDeviation="2" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
     <rect x="0" y="0" width="120" height="213" fill="#13151f" rx="12" stroke="#232738" stroke-width="2"/>
     <rect x="15" y="140" width="65" height="10" rx="3" fill="#232738" stroke="#a1a1aa" stroke-width="1"/>
     <circle cx="30" cy="115" r="10" fill="url(#gBlueE)"/>
@@ -393,14 +287,9 @@ body::after {
   </svg>
 </template>
 
-<!-- MODE DESSIN -->
 <template id="svg-dessin">
   <svg viewBox="0 0 120 213" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="gBlueD" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0077ff"/></linearGradient>
-      <linearGradient id="gGreenD" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00e87a"/><stop offset="100%" stop-color="#00ffcc"/></linearGradient>
-      <filter id="glowG"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-    </defs>
+    <defs><linearGradient id="gBlueD" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00d4ff"/><stop offset="100%" stop-color="#0077ff"/></linearGradient><linearGradient id="gGreenD" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00e87a"/><stop offset="100%" stop-color="#00ffcc"/></linearGradient><filter id="glowG"><feGaussianBlur stdDeviation="3" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
     <rect x="0" y="0" width="120" height="213" fill="#13151f" rx="12" stroke="#232738" stroke-width="2"/>
     <circle cx="30" cy="90" r="10" fill="url(#gBlueD)"/>
     <path d="M 15 125 Q 30 100 50 120" stroke="url(#gBlueD)" stroke-width="4" fill="none" stroke-linecap="round"/>
@@ -416,61 +305,91 @@ body::after {
 
 <script>
 const FRAMINGS = {
-  "salon": { id: "svg-salon", name: "Mode Salon", sub: "Tout le monde est assis", cssTag: "pill-salon", icon: "🛋️", info: [ { t: "<strong>Où se placer :</strong> Asseyez-vous tous les 3 autour d'une table ou sur un canapé." }, { t: "<strong>Le truc en plus :</strong> Posez le téléphone qui filme assez loin pour qu'on vous voie bien jusqu'à la taille." } ] },
-  "emission": { id: "svg-emission", name: "Mode Émission", sub: "Le Chef au tableau", cssTag: "pill-emission", icon: "🎤", info: [ { t: "<strong>Où se placer :</strong> Une personne reste debout pour animer le jeu (le présentateur)." }, { t: "<strong>Le truc en plus :</strong> Les deux autres joueurs s'assoient face à la caméra comme s'ils étaient à l'école." } ] },
+  "salon": { id: "svg-salon", name: "Mode Salon", sub: "Tout le monde est assis", cssTag: "pill-salon", icon: "🛋️", info: [ { t: "<strong>Où se placer :</strong> Asseyez-vous tous les 3 autour d'une table ou sur un canapé." }, { t: "<strong>Le truc en plus :</strong> Posez le téléphone qui filme assez loin pour qu'on vous voie bien." } ] },
+  "emission": { id: "svg-emission", name: "Mode Émission", sub: "Le Chef au tableau", cssTag: "pill-emission", icon: "🎤", info: [ { t: "<strong>Où se placer :</strong> Une personne reste debout pour animer le jeu." }, { t: "<strong>Le truc en plus :</strong> Les deux autres joueurs s'assoient face à la caméra." } ] },
   "dessin": { id: "svg-dessin", name: "Focus sur l'écran", sub: "Montre-nous ça de près", cssTag: "pill-salon", icon: "🔍", info: [ { t: "<strong>Où se placer :</strong> Tout le monde reste assis tranquille." }, { t: "<strong>Le truc en plus :</strong> Rapprochez la caméra. Celui qui fait l'action doit bien montrer ses mains et son téléphone." } ] }
 };
 
 const GAMES = [
-  { id:1, name:"On a pensé au même ?", ico:"🔵", color:"c-orange", frameId:"emission", cats:["emission"], desc:"Est-ce que vous allez penser exactement au même personnage en entendant un mot ?", rules:["Le présentateur dit un mot-clé (exemple : 'Pompier').","Les 2 joueurs écrivent secrètement un nom de personnage sur leur téléphone.","Au signal '1, 2, 3', ils montrent leur écran en même temps.","S'ils ont écrit la même chose, c'est gagné !"], example:{label:"On fait un essai :", text:"Mot : 'Héros vert'. Joueur A écrit Deku. Joueur B écrit Zoro. Mince, c'est raté !"} },
-  { id:2, name:"Trouve l'Imposteur", ico:"🕵️", color:"c-blue", frameId:"salon", cats:["salon"], desc:"L'un de vous n'a pas le même mot que les autres. Il faut le démasquer.", rules:["2 joueurs reçoivent le nom d'un personnage. Le 3ème joueur reçoit un nom qui y ressemble.","Chacun donne un petit indice sur son personnage sans dire son nom.","Vous devez discuter et voter pour éliminer celui qui vous semble suspect."], example:{label:"On fait un essai :", text:"Les mots sont Naruto (2 fois) et Boruto (1 fois). Si quelqu'un dit 'C'est un papa', c'est lui l'imposteur !"} },
-  { id:3, name:"Fais ton Classement", ico:"🏆", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Classe tes personnages préférés du meilleur au plus nul, et prépare-toi à te disputer avec tes amis.", rules:["Choisissez 5 personnages connus de tous.","Chacun les classe en secret de la 1ère à la 5ème place.","Montrez vos classements en même temps.","Discutez pour savoir qui a fait le pire classement de l'histoire."], example:{label:"On fait un essai :", text:"Mettre Sakura à la 1ère place et Luffy à la dernière. Tes amis vont sûrement crier !"} },
-  { id:4, name:"L'Avis Pas Populaire", ico:"⚡", color:"c-yellow", frameId:"salon", cats:["salon"], desc:"Ose dire un truc sur un anime que la majorité des gens ne pensent pas du tout.", rules:["Chacun votre tour, dites une phrase choc sur un anime.","Les deux autres amis votent avec le pouce en l'air ou le pouce en bas.","Tu as 15 secondes pour prouver que tu as raison."], example:{label:"On fait un essai :", text:"'Je trouve que le pouvoir de Krilin est plus cool que celui de Goku'. Fais-nous changer d'avis !"} },
-  { id:5, name:"Vrai ou Faux ?", ico:"🤥", color:"c-purple", frameId:"emission", cats:["emission"], desc:"Est-ce que cette anecdote incroyable existe vraiment dans l'anime, ou est-ce un gros mensonge ?", rules:["Le présentateur lit une information très bizarre sur un anime.","Les 2 joueurs doivent dire si c'est VRAI ou FAUX.","Celui qui a la bonne réponse gagne un point."], example:{label:"On fait un essai :", text:"'Naruto portait des lunettes de protection au tout début du manga.' (C'est VRAI !)"} },
-  { id:6, name:"Qui est-ce ?", ico:"🎭", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"Pose des questions pour deviner quel personnage l'animateur cache dans sa tête.", rules:["L'animateur choisit un personnage de dessin animé dans sa tête.","Les joueurs posent plein de questions très vite.","L'animateur n'a le droit de répondre que par OUI ou NON.","Le premier qui trouve le nom exact a gagné."], example:{label:"On fait un essai :", text:"'Est-ce qu'il a des cheveux blonds ?' (Oui). 'Il a une épée ?' (Non). 'Il mange beaucoup ?' (Oui) -> C'est Naruto !"} },
-  { id:7, name:"Le Jeu du Pendu", ico:"✏️", color:"c-green", frameId:"emission", cats:["emission"], desc:"Devinez le mot mystère lettre par lettre avant d'être éliminés.", rules:["L'animateur montre des tirets vides (comme _ _ _ _).","Les joueurs donnent des lettres à tour de rôle (A, B, O...).","Si la lettre n'est pas dans le mot, on perd une vie. Au bout de 6 erreurs, c'est perdu !"], example:{label:"On fait un essai :", text:"G O K _ . Il ne manque qu'une seule lettre, devine laquelle !"} },
-  { id:8, name:"Le Plus Rapide Gagne", ico:"🎯", color:"c-red", frameId:"emission", cats:["emission"], desc:"Trois indices pour deviner de qui on parle. Plus tu trouves vite, plus tu marques de points.", rules:["L'animateur lit le 1er indice, qui est très difficile (3 points).","S'il n'y a pas de réponse, il lit le 2ème indice (2 points).","Puis le 3ème indice, qui est super facile (1 point).","Lève la main pour répondre. Si tu te trompes, tu perds des points !"], example:{label:"On fait un essai :", text:"Indice 1 : J'ai un chapeau de paille. Si tu dis Luffy tout de suite, bravo, tu marques 3 points !"} },
-  { id:9, name:"Le Mot Interdit", ico:"🚫", color:"c-orange", frameId:"emission", cats:["emission"], desc:"Fais deviner un personnage sans prononcer les trois mots qui lui collent à la peau.", rules:["Tu dois faire deviner un personnage à ton copain.","L'animateur te donne 3 mots que tu n'as PAS le droit de dire !","Tu as 30 secondes pour expliquer. Sois malin."], example:{label:"On fait un essai :", text:"Fais deviner GOKU, sans dire : Jaune, Cheveux, Dragon. 'C'est le papa de Gohan qui adore se battre !'"} },
-  { id:10, name:"Le Mélange Fou", ico:"🔀", color:"c-cyan", frameId:"salon", cats:["salon"], desc:"Mélange deux univers qui n'ont rien à voir et invente une nouvelle histoire.", rules:["Choisissez deux dessins animés totalement différents.","Vous avez 20 secondes pour imaginer ce qu'il se passerait s'ils se rencontraient.","Chacun raconte sa nouvelle histoire à voix haute."], example:{label:"On fait un essai :", text:"Pokémon + L'Attaque des Titans. 'Des dresseurs doivent lancer des Pokéballs géantes pour capturer des Titans !'"} },
-  { id:11, name:"Qui a dit ça ?", ico:"🎤", color:"c-purple", frameId:"emission", cats:["emission"], desc:"Écoute bien la phrase célèbre et retrouve le personnage qui l'a prononcée.", rules:["L'animateur lit une phrase très connue d'un personnage.","Dès que tu sais de qui il s'agit, lève la main très vite !","Le premier à donner le bon prénom marque le point."], example:{label:"On fait un essai :", text:"'Je serai le Roi des Pirates !' Lève la main, c'est Luffy !"} },
-  { id:12, name:"Super Pouvoir ou Gros Mytho ?", ico:"📖", color:"c-lime", frameId:"emission", cats:["emission"], desc:"Est-ce que cette technique d'attaque existe pour de vrai dans le manga ?", rules:["L'animateur crie le nom d'une attaque avec une voix très sérieuse.","Vous devez deviner s'il l'a inventée ou si elle existe vraiment.","Faites un pouce en l'air (Vrai) ou en bas (Inventé)."], example:{label:"On fait un essai :", text:"'L'attaque du Pingouin de Glace Galactique !' ... C'est totalement inventé !"} },
-  { id:13, name:"Devine la Musique", ico:"🎵", color:"c-blue", frameId:"emission", cats:["emission"], desc:"Écoute l'animateur fredonner une chanson, et retrouve le titre du dessin animé.", rules:["L'animateur doit chanter la mélodie sans dire les paroles (ex: Lalalala).","Les 2 joueurs doivent reconnaître la musique.","Le premier qui crie le nom du dessin animé a gagné."], example:{label:"On fait un essai :", text:"L'animateur chante 'Un jour je serai le meilleur dresseur...'. C'est Pokémon !"} },
-  { id:14, name:"Le Dictionnaire Rigolo", ico:"📚", color:"c-yellow", frameId:"salon", cats:["salon"], desc:"Invente la définition la plus drôle possible pour un mot bizarre.", rules:["Un mot un peu étrange apparaît à l'écran.","Chacun écrit secrètement ce qu'il pense que ça veut dire, mais en essayant d'être très drôle.","Lisez vos réponses, celui qui fait le plus rire les autres gagne."], example:{label:"On fait un essai :", text:"Mot : 'Spoiler'. Réponse drôle : 'C'est quand ton ami te gâche la fin de ton film préféré et que tu ne veux plus lui parler'."} },
-  { id:15, name:"3 Choses en 5 Secondes", ico:"⏱️", color:"c-red", frameId:"emission", cats:["emission"], desc:"Trouve 3 réponses très vite avant que le temps ne soit écoulé. Panique garantie !", rules:["L'animateur te donne un thème super simple.","Tu n'as que 5 petites secondes pour trouver 3 réponses.","Si tu bégaies, que tu bloques ou que le temps est fini, c'est perdu !"], example:{label:"On fait un essai :", text:"'Donne-moi 3 choses qui sont rouges !' 5, 4, 3... 'Euh.. une fraise, du sang, un camion de pompier !'"} },
-  { id:16, name:"Les Lettres Mélangées", ico:"🔤", color:"c-lime", frameId:"emission", cats:["emission"], desc:"Remets les lettres dans le bon ordre pour retrouver le prénom caché.", rules:["L'animateur montre un panneau avec un prénom dont les lettres sont en désordre.","Observez bien et réfléchissez dans le calme.","Le premier qui a remis les lettres dans l'ordre gagne le point."], example:{label:"On fait un essai :", text:"K U G O. Si tu remets les lettres en place, ça fait GOKU !"} },
-  { id:17, name:"Dessine les Yeux Fermés", ico:"✍️", color:"c-pink", frameId:"dessin", cats:["salon"], desc:"Dessine un personnage très vite sur ton téléphone. Tes amis doivent deviner qui c'est.", rules:["Tu as 30 secondes pour dessiner un personnage célèbre sur ton écran.","Montre vite le résultat à tes copains.","Ils doivent deviner de qui il s'agit, même si c'est très moche !"], example:{label:"On fait un essai :", text:"Tu essaies de dessiner Pikachu mais ça ressemble à un citron avec des oreilles. Tes amis vont bien rigoler."} },
-  { id:18, name:"En Couple ou Pas ?", ico:"💞", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Est-ce que ces deux personnages feraient un bon couple amoureux ?", rules:["On vous donne les noms de deux personnages.","Vous devez dire 'OUI' s'ils iraient bien ensemble, ou 'NON' si c'est une mauvaise idée.","Chacun doit expliquer pourquoi !"], example:{label:"On fait un essai :", text:"Naruto et Nami de One Piece. OUI ou NON ? À vous d'en débattre !"} },
-  { id:19, name:"Refais la Fin", ico:"🔄", color:"c-green", frameId:"salon", cats:["salon"], desc:"Invente une fin complètement différente pour une histoire que tu connais.", rules:["Prenez un film ou un dessin animé très célèbre.","Vous avez 20 secondes pour réfléchir à une fin totalement différente et rigolote.","Racontez-la tour à tour."], example:{label:"On fait un essai :", text:"Et si, à la fin de Naruto, c'était Sasuke qui devenait le Hokage à sa place ?"} },
-  { id:20, name:"Le Grand Tournoi", ico:"🏅", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Qui est le personnage le plus fort de tous les temps ? Organisez des duels pour le savoir.", rules:["Choisissez 8 de vos personnages préférés.","Faites-les s'affronter deux par deux (exemple : Naruto VS Ichigo).","Votez pour celui qui gagne jusqu'à ce qu'il n'en reste plus qu'un : le grand champion !"], example:{label:"On fait un essai :", text:"Duel final : Goku VS Saitama. Argumentez bien fort pour choisir le vainqueur !"} },
-  { id:21, name:"Trouve le Mensonge", ico:"🃏", color:"c-purple", frameId:"emission", cats:["emission"], desc:"L'animateur donne trois infos. Deux sont vraies, une est fausse.", rules:["L'animateur lit 3 petites histoires sur un personnage.","Les joueurs doivent réfléchir ensemble pour trouver laquelle est un pur mensonge.","Il faut se mettre d'accord sur une seule réponse."], example:{label:"On fait un essai :", text:"1. Pikachu est jaune. 2. Il a une queue en éclair. 3. Il adore sa Pokéball. Le mensonge est le 3 !"} },
-  { id:22, name:"Crée ton Équipe de Choc", ico:"💸", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Tu as un petit budget pour acheter des personnages et créer la meilleure équipe possible.", rules:["On vous donne 15 euros virtuels.","Achetez des personnages sur l'image affichée (les plus forts coûtent 5€, les nuls coûtent 1€).","Ne dépassez pas votre budget et montrez vos équipes."], example:{label:"On fait un essai :", text:"Goku coûte trop cher, tu dois acheter 15 petits bonshommes nuls à 1€ pour te défendre !"} },
-  { id:23, name:"Traduction Bizarre", ico:"📜", color:"c-blue", frameId:"emission", cats:["emission"], desc:"On a traduit une chanson en français avec l'ordinateur, et ça ne veut plus rien dire.", rules:["L'animateur lit les paroles d'un générique japonais traduit en français mot pour mot.","La phrase va sembler complètement absurde.","Dès que tu as reconnu la vraie chanson, lève la main !"], example:{label:"On fait un essai :", text:"'Le bleu oiseau vole dans le ciel cassé'. C'est le générique Blue Bird (Naruto) !"} },
-  { id:24, name:"Qui suis-je ?", ico:"🤔", color:"c-cyan", frameId:"salon", cats:["salon"], desc:"Tu as un post-it imaginaire sur le front avec un nom. Devine de qui il s'agit.", rules:["Un joueur ne connaît pas le personnage qui est écrit sur son propre front.","Il doit poser des questions aux autres (Suis-je un animal ? Suis-je méchant ?).","Les autres répondent par OUI ou NON. Trouve la réponse en moins d'une minute !"], example:{label:"On fait un essai :", text:"'Est-ce que j'ai les cheveux verts ?' (Oui) 'J'utilise 3 épées ?' (Oui) -> Je suis Zoro !"} },
-  { id:25, name:"Explique à ta Maman", ico:"📺", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Raconte une histoire compliquée avec des mots très simples pour que tes parents comprennent.", rules:["On te donne un dessin animé avec de la magie ou des monstres.","Tu dois le raconter sans utiliser AUCUN mot bizarre (interdit de dire magie, pouvoirs, ninja).","Si tu dis un mot compliqué, tu as perdu."], example:{label:"On fait un essai :", text:"Explique My Hero Academia : 'C'est un garçon sans pouvoir qui avale un cheveu pour devenir fort'."} },
-  { id:26, name:"La Meilleure Réponse", ico:"📊", color:"c-yellow", frameId:"emission", cats:["emission"], desc:"Trouve la réponse que presque tout le monde a donnée dans la rue.", rules:["L'animateur pose une question générale (exemple: Quel est le meilleur super pouvoir ?).","Vous devez essayer de deviner ce que la majorité des gens ont répondu.","Si vous donnez une mauvaise réponse, l'animateur met une croix (X). 3 croix = perdu !"], example:{label:"On fait un essai :", text:"'Quel est l'anime avec des pirates le plus connu ?' Tu réponds : 'One Piece !' Bravo, réponse n°1 !"} },
-  { id:27, name:"Le Classement Piège", ico:"🙈", color:"c-red", frameId:"salon", cats:["salon"], desc:"Place les éléments de 1 à 5 sans savoir ce qui arrivera ensuite !", rules:["L'animateur te montre un personnage à la fois.","Tu dois décider tout de suite si tu le mets en 1er (meilleur) ou 5ème (pire).","Tu n'as pas le droit de changer de place plus tard !"], example:{label:"On fait un essai :", text:"Tu mets Sakura à la 2ème place. Soudain, l'animateur montre Zoro, mais la 1ère place est déjà prise ! Quel dommage !"} },
-  { id:28, name:"Le Plus de Mots en 30s", ico:"⏳", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"Fais deviner un maximum de personnages à ton ami, mais avec UN SEUL MOT à chaque fois.", rules:["L'animateur a une liste de 10 mots.","Le Joueur 1 dit UN seul mot pour faire deviner. Le Joueur 2 doit trouver la réponse.","Si le Joueur 2 ne sait pas, on passe au mot suivant. Faites le meilleur score en 30 secondes."], example:{label:"On fait un essai :", text:"Joueur 1 dit : 'Pirate'. Joueur 2 répond : 'Luffy !'. Point gagné, suivant !"} },
-  { id:29, name:"Le Juste Chiffre", ico:"💰", color:"c-green", frameId:"emission", cats:["emission"], desc:"Trouve le nombre exact en écoutant les indices : C'est plus ! C'est moins !", rules:["L'animateur pose une question avec un nombre en réponse (exemple: le nombre d'épisodes de One Piece).","Les joueurs donnent des chiffres au hasard.","L'animateur les guide en disant 'C'est plus !' ou 'C'est moins !' jusqu'à trouver le bon chiffre."], example:{label:"On fait un essai :", text:"Tu dis 500. Il dit 'C'est plus'. Tu dis 1000. Il dit 'C'est plus'. On y est presque !"} },
-  { id:30, name:"Cherchez l'Intrus", ico:"🧩", color:"c-purple", frameId:"salon", cats:["salon"], desc:"Regardez bien les 4 images. L'une d'elles n'a rien à faire ici !", rules:["4 personnages ou objets sont affichés sur l'écran.","Trois d'entre eux ont un point commun. Le quatrième est l'intrus.","Le premier joueur qui trouve l'intrus et explique pourquoi a gagné."], example:{label:"On fait un essai :", text:"Goku, Vegeta, Trunks et Pikachu. L'intrus est Pikachu, il n'est pas dans Dragon Ball !"} },
-  { id:31, name:"Chante la Suite", ico:"🎤", color:"c-blue", frameId:"emission", cats:["emission"], desc:"La musique va s'arrêter d'un coup. À toi de continuer à chanter !", rules:["L'animateur met une musique de générique très connue.","Au bout de 5 secondes, il coupe le son complètement.","Le premier joueur qui chante la suite sans se tromper marque un point."], example:{label:"On fait un essai :", text:"'Je serai le meilleur dresseur, je me battrai sans...' Le son coupe ! À toi de crier 'RÉPIT' !"} },
-  { id:32, name:"C'est un 10 mais...", ico:"🚩", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Le personnage est super, MAIS il a un énorme défaut. Quelle note lui donnes-tu ?", rules:["Un joueur dit : 'Ce personnage a tout pour plaire (c'est un 10/10), MAIS... il sent très mauvais des pieds.'","Les deux autres amis doivent lui donner une nouvelle note entre 0 et 10.","Discutez pour savoir si le défaut est grave ou pas."], example:{label:"On fait un essai :", text:"C'est un 10/10, mais il vide ton frigo entier en 2 minutes comme Goku. Moi je lui mets 4/10 !"} },
-  { id:33, name:"Les Mots Liés", ico:"🕵️", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"Trouve plusieurs personnages qui vont ensemble grâce à un seul mot indice.", rules:["Il y a plein de personnages affichés au tableau.","L'animateur donne UN SEUL MOT et UN CHIFFRE (Exemple : Épée - 2).","Les joueurs doivent trouver les 2 personnages qui utilisent une épée."], example:{label:"On fait un essai :", text:"Indice 'Feu - 2'. Vous devez toucher la photo de Natsu et de Ace pour gagner !"} },
-  { id:34, name:"L'Histoire en Emojis", ico:"📱", color:"c-yellow", frameId:"salon", cats:["salon"], desc:"Devine de quel anime on parle en regardant juste 3 emojis.", rules:["Des petits emojis s'affichent à l'écran (des animaux, des objets...).","Tu dois comprendre quelle histoire célèbre ils racontent.","Sois le plus rapide à crier le titre de l'œuvre !"], example:{label:"On fait un essai :", text:"🦊🍥🍜 (Un renard, un tourbillon, un bol de nouilles). C'est Naruto !"} },
-  { id:35, name:"Tu Préfères ?", ico:"⚖️", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Choisis entre deux choses impossibles. Attention, les deux sont terribles !", rules:["L'animateur vous pose une question 'Tu préfères...'.","Vous devez choisir la solution numéro 1 ou la numéro 2.","Vous devez expliquer à vos amis pourquoi vous avez fait ce choix."], example:{label:"On fait un essai :", text:"Tu préfères ne plus jamais regarder de manga de ta vie OU ne manger que des légumes pour toujours ?"} },
-  { id:36, name:"La Chaîne des Mots", ico:"🔗", color:"c-green", frameId:"salon", cats:["salon"], desc:"Enchaîne les noms en utilisant la dernière lettre du mot précédent.", rules:["Un joueur dit un nom de personnage ou d'anime.","Le joueur d'après doit dire un mot qui commence par la DERNIÈRE lettre du mot d'avant.","Le premier qui réfléchit trop longtemps ou qui répète un mot a perdu."], example:{label:"On fait un essai :", text:"NarutO -> One piecE -> EvangelioN -> Narut... (Perdu, tu as répété !) "} },
-  { id:37, name:"Baisse un Doigt si...", ico:"🤚", color:"c-pink", frameId:"emission", cats:["emission"], desc:"Lève tes 10 doigts. Baisse-en un à chaque fois que tu as fait ce que dit l'animateur.", rules:["Levez les deux mains (10 doigts) devant vous.","L'animateur lit une liste de choses drôles que font les fans d'anime.","Si vous l'avez déjà fait, baissez un doigt. Le gagnant est celui à qui il reste le plus de doigts !"], example:{label:"On fait un essai :", text:"Baisse un doigt si tu as déjà couru en mettant les bras en arrière comme un ninja !"} },
-  { id:38, name:"Défends le Méchant", ico:"😈", color:"c-purple", frameId:"salon", cats:["salon"], desc:"Tu vas devoir défendre un personnage que tout le monde déteste, et lui trouver des qualités !", rules:["L'animateur désigne le pire méchant d'une histoire.","Un joueur a 30 secondes pour faire comme s'il était son avocat et dire qu'il est gentil au fond.","Les autres donnent une note sur 10 à ton spectacle."], example:{label:"On fait un essai :", text:"Défends Freezer : 'Il détruit des planètes, oui, mais il est toujours très poli !'"} },
-  { id:39, name:"Prends-le ou Laisse-le", ico:"🚪", color:"c-red", frameId:"salon", cats:["salon"], desc:"Tu montes une équipe pour sauver le monde. Tu l'acceptes dans l'équipe ou tu le rejettes ?", rules:["Une image de personnage apparaît à l'écran.","Tu devons dire 'Je prends' s'il est utile pour ton équipe, ou 'Je laisse' s'il est trop faible.","Tu dois toujours expliquer pourquoi à tes copains."], example:{label:"On fait un essai :", text:"Levi de L'Attaque des Titans ? 'Je le prends, c'est le plus fort !'"} },
-  { id:40, name:"Rafale d'Indices", ico:"⏱️", color:"c-blue", frameId:"emission", cats:["emission"], desc:"L'animateur lit plein d'indices sans s'arrêter. Sois le premier à l'interrompre si tu sais !", rules:["L'animateur lit une description en commençant par les trucs les plus difficiles.","Il parle de plus en plus vite.","Dès que tu sais de qui il s'agit, crie le nom ! Si tu as faux, tu passes ton tour."], example:{label:"On fait un essai :", text:"'Je suis jaune, j'ai les joues rouges, mon attaque c'est l'éclair...' Pikachu !"} },
-  { id:41, name:"L'Image Zoomée", ico:"🔍", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"L'image est grossie au maximum. Tu ne vois qu'un tout petit détail. Qu'est-ce que c'est ?", rules:["L'écran affiche une image tellement zoomée qu'on ne voit que des pixels de couleur.","Essayez de deviner de quoi il s'agit.","L'animateur va dézoomer (reculer) petit à petit pour vous aider."], example:{label:"On fait un essai :", text:"On voit juste un bout de paille jaune. En reculant, on découvre que c'était le chapeau de Luffy !"} },
-  { id:42, name:"Pari Otaku", ico:"🔨", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Dis à tes amis combien de choses tu es capable de citer, et prouve-le !", rules:["L'animateur donne un thème. Joueur A dit 'Moi, je peux en citer 3'.","Le Joueur B peut dire : 'Moi je peux en citer 5 !'","Le Joueur A peut dire 'Prouve-le !'. Le Joueur B doit alors citer les 5 pour gagner."], example:{label:"On fait un essai :", text:"'Cite-moi des épéistes'. 'Moi je peux en citer 4 !' -> Prouve-le ! -> Zoro, Kirito, Trunks, Erza. Gagné !"} },
-  { id:43, name:"Détecteur de Mensonges", ico:"🤥", color:"c-green", frameId:"salon", cats:["salon"], desc:"Raconte une histoire sur toi, et tes amis doivent savoir si tu mens ou non.", rules:["Un joueur raconte une petite histoire personnelle à ses amis en rapport avec les mangas.","Les autres posent pleins de questions pour voir si le joueur hésite ou bégaye.","À la fin, ils votent : 'C'est Vrai' ou 'C'est Faux'."], example:{label:"On fait un essai :", text:"'J'ai déjà essayé de faire un Kamehameha dans ma chambre quand j'étais seul'. Vrai ou Mytho ?"} },
-  { id:44, name:"La Roue Infernale", ico:"🎲", color:"c-yellow", frameId:"emission", cats:["emission"], desc:"Un personnage est tiré au sort, tu dois tout de suite l'imiter ou faire son attaque !", rules:["Une petite roue (ou un filtre) tourne au-dessus de ta tête sur l'écran.","Dès qu'elle s'arrête sur une image, l'animateur te donne un ordre ('Imite-le !').","Tu as 3 secondes pour obéir sans avoir honte."], example:{label:"On fait un essai :", text:"La roue s'arrête sur Naruto. L'animateur dit : 'Fais son attaque !' Tu dois crier RASENGAN !"} },
-  { id:45, name:"La Devinette Secrète", ico:"🗿", color:"c-purple", frameId:"emission", cats:["emission"], desc:"Écoute bien la devinette sous forme de petite poésie pour trouver la réponse.", rules:["L'animateur lit un petit poème ou une phrase mystérieuse.","Interdiction de répondre avant qu'il n'ait fini de parler !","Réfléchissez bien avant de donner votre réponse finale."], example:{label:"On fait un essai :", text:"'Je suis vert, j'exauce les vœux et ressemble à un serpent volant.' Le dragon Shenron !"} }
+  { id:1, v:7, name:"On a pensé au même ?", ico:"🔵", color:"c-orange", frameId:"emission", cats:["emission"], desc:"Allez-vous penser exactement au même personnage en entendant un mot ?", rules:["Le présentateur dit un mot-clé (exemple : 'Ninja').","Les 2 joueurs écrivent secrètement un nom de personnage sur leur téléphone.","Au signal '1, 2, 3', ils montrent leur écran en même temps.","S'ils ont écrit la même chose, c'est gagné !"], example:{label:"On fait un essai :", text:"Mot : 'Héros vert'. Joueur A écrit Deku. Joueur B écrit Zoro. Mince, c'est raté !"} },
+  { id:2, v:8, name:"Trouve l'Imposteur", ico:"🕵️", color:"c-blue", frameId:"salon", cats:["salon"], desc:"L'un de vous n'a pas le même mot que les autres. Il faut le démasquer.", rules:["2 joueurs reçoivent le nom d'un personnage. Le 3ème joueur reçoit un nom qui y ressemble.","Chacun donne un petit indice sur son personnage sans dire son nom.","Vous devez discuter et voter pour éliminer celui qui vous semble suspect."], example:{label:"On fait un essai :", text:"Les mots sont Naruto (2 fois) et Boruto (1 fois). Si quelqu'un dit 'C'est un Hokage', c'est lui l'imposteur !"} },
+  { id:3, v:10, name:"Fais ton Classement", ico:"🏆", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Classe tes personnages préférés du meilleur au plus nul, et prépare-toi à te disputer.", rules:["Choisissez 5 personnages d'anime connus de tous.","Chacun les classe en secret de la 1ère à la 5ème place.","Montrez vos classements en même temps.","Discutez pour savoir qui a fait le pire classement de l'histoire."], example:{label:"On fait un essai :", text:"Mettre Sakura à la 1ère place et Luffy à la dernière. Tes amis vont sûrement crier !"} },
+  { id:4, v:10, name:"L'Avis Pas Populaire", ico:"⚡", color:"c-yellow", frameId:"salon", cats:["salon"], desc:"Ose dire un truc sur un anime que la majorité des gens ne pensent pas du tout.", rules:["Chacun votre tour, dites une phrase choc sur un anime.","Les deux autres amis votent avec le pouce en l'air ou le pouce en bas.","Tu as 15 secondes pour prouver que tu as raison."], example:{label:"On fait un essai :", text:"'Je trouve que le pouvoir de Krilin est plus cool que celui de Goku'. Fais-nous changer d'avis !"} },
+  { id:5, v:6, name:"Vrai ou Faux ?", ico:"🤥", color:"c-purple", frameId:"emission", cats:["emission"], desc:"Cette anecdote incroyable existe-t-elle vraiment, ou est-ce un gros mensonge ?", rules:["Le présentateur lit une information très bizarre sur un anime.","Les 2 joueurs doivent dire si c'est VRAI ou FAUX.","Celui qui a la bonne réponse gagne un point."], example:{label:"On fait un essai :", text:"'Naruto portait des lunettes de protection au tout début du manga.' (C'est VRAI !)"} },
+  { id:6, v:7, name:"Qui est-ce ?", ico:"🎭", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"Pose des questions pour deviner quel personnage l'animateur cache dans sa tête.", rules:["L'animateur choisit un personnage d'anime dans sa tête.","Les joueurs posent plein de questions très vite.","L'animateur n'a le droit de répondre que par OUI ou NON.","Le premier qui trouve le nom exact a gagné."], example:{label:"On fait un essai :", text:"'Est-ce qu'il a des cheveux blonds ?' (Oui). 'Il a une épée ?' (Non). 'Il mange beaucoup ?' (Oui) -> C'est Naruto !"} },
+  { id:7, v:5, name:"Le Jeu du Pendu", ico:"✏️", color:"c-green", frameId:"emission", cats:["emission"], desc:"Devinez le personnage d'anime mystère lettre par lettre avant d'être éliminés.", rules:["L'animateur montre des tirets vides (comme _ _ _ _).","Les joueurs donnent des lettres à tour de rôle (A, B, O...).","Si la lettre n'est pas dans le mot, on perd une vie. Au bout de 6 erreurs, c'est perdu !"], example:{label:"On fait un essai :", text:"G O K _ . Il ne manque qu'une seule lettre, devine laquelle !"} },
+  { id:8, v:8, name:"Le Plus Rapide Gagne", ico:"🎯", color:"c-red", frameId:"emission", cats:["emission"], desc:"Trois indices pour deviner le personnage d'anime. Plus tu trouves vite, plus tu marques.", rules:["L'animateur lit le 1er indice, qui est très difficile (3 points).","S'il n'y a pas de réponse, il lit le 2ème indice (2 points).","Puis le 3ème indice, qui est super facile (1 point).","Lève la main pour répondre. Si tu te trompes, tu perds des points !"], example:{label:"On fait un essai :", text:"Indice 1 : J'ai un chapeau de paille. Si tu dis Luffy tout de suite, bravo, tu marques 3 points !"} },
+  { id:9, v:8, name:"Le Mot Interdit", ico:"🚫", color:"c-orange", frameId:"emission", cats:["emission"], desc:"Fais deviner un personnage sans prononcer les trois mots qui lui collent à la peau.", rules:["Tu dois faire deviner un personnage à ton copain.","L'animateur te donne 3 mots que tu n'as PAS le droit de dire !","Tu as 30 secondes pour expliquer. Sois malin."], example:{label:"On fait un essai :", text:"Fais deviner GOKU, sans dire : Jaune, Cheveux, Dragon. 'C'est le papa de Gohan qui adore se battre !'"} },
+  { id:10, v:6, name:"Le Mélange Fou", ico:"🔀", color:"c-cyan", frameId:"salon", cats:["salon"], desc:"Mélange deux animes qui n'ont rien à voir et invente une nouvelle histoire.", rules:["Choisissez deux animes totalement différents.","Vous avez 20 secondes pour imaginer ce qu'il se passerait s'ils se rencontraient.","Chacun raconte sa nouvelle histoire à voix haute."], example:{label:"On fait un essai :", text:"Pokémon + L'Attaque des Titans. 'Des dresseurs doivent lancer des Pokéballs géantes pour capturer des Titans !'"} },
+  { id:11, v:7, name:"Qui a dit ça ?", ico:"🎤", color:"c-purple", frameId:"emission", cats:["emission"], desc:"Écoute bien la phrase célèbre d'un anime et retrouve le personnage qui l'a prononcée.", rules:["L'animateur lit une phrase très connue d'un personnage.","Dès que tu sais de qui il s'agit, lève la main très vite !","Le premier à donner le bon prénom marque le point."], example:{label:"On fait un essai :", text:"'Je serai le Roi des Pirates !' Lève la main, c'est Luffy !"} },
+  { id:12, v:7, name:"Super Pouvoir ou Gros Mytho ?", ico:"📖", color:"c-lime", frameId:"emission", cats:["emission"], desc:"Est-ce que cette technique d'attaque existe pour de vrai dans le manga ?", rules:["L'animateur crie le nom d'une attaque avec une voix très sérieuse.","Vous devez deviner s'il l'a inventée ou si elle existe vraiment.","Faites un pouce en l'air (Vrai) ou en bas (Inventé)."], example:{label:"On fait un essai :", text:"'Le Rasengan de Feu Noir !' ... C'est totalement inventé !"} },
+  { id:13, v:9, name:"Devine la Musique", ico:"🎵", color:"c-blue", frameId:"emission", cats:["emission"], desc:"Écoute l'animateur fredonner une chanson, et retrouve le titre de l'anime.", rules:["L'animateur doit chanter la mélodie de l'opening sans dire les paroles.","Les 2 joueurs doivent reconnaître la musique.","Le premier qui crie le nom de l'anime a gagné."], example:{label:"On fait un essai :", text:"L'animateur chante 'Un jour je serai le meilleur dresseur...'. C'est Pokémon !"} },
+  { id:14, v:6, name:"Le Dictionnaire Rigolo", ico:"📚", color:"c-yellow", frameId:"salon", cats:["salon"], desc:"Invente la définition la plus drôle possible pour un mot de l'univers manga.", rules:["Un mot un peu étrange apparaît à l'écran.","Chacun écrit secrètement ce qu'il pense que ça veut dire, mais en essayant d'être très drôle.","Lisez vos réponses, celui qui fait le plus rire les autres gagne."], example:{label:"On fait un essai :", text:"Mot : 'Spoiler'. Réponse drôle : 'Quand ton ami te raconte la fin de L'Attaque des Titans alors que tu n'as pas vu l'épisode.'"} },
+  { id:15, v:9, name:"3 Personnages en 5 Secondes", ico:"⏱️", color:"c-red", frameId:"emission", cats:["emission"], desc:"Trouve 3 réponses très vite avant que le temps ne soit écoulé. Panique garantie !", rules:["L'animateur te donne un thème anime super simple.","Tu n'as que 5 petites secondes pour trouver 3 réponses.","Si tu bégaies, que tu bloques ou que le temps est fini, c'est perdu !"], example:{label:"On fait un essai :", text:"'3 personnages avec des cheveux blancs !' 5, 4, 3... 'Euh.. Gojo, Kakashi, Kirua !'"} },
+  { id:16, v:6, name:"Les Lettres Mélangées", ico:"🔤", color:"c-lime", frameId:"emission", cats:["emission"], desc:"Remets les lettres dans le bon ordre pour retrouver le prénom caché du ninja ou du pirate.", rules:["L'animateur montre un panneau avec un prénom dont les lettres sont en désordre.","Observez bien et réfléchissez dans le calme.","Le premier qui a remis les lettres dans l'ordre gagne le point."], example:{label:"On fait un essai :", text:"K U G O. Si tu remets les lettres en place, ça fait GOKU !"} },
+  { id:17, v:10, name:"Dessine les Yeux Fermés", ico:"✍️", color:"c-pink", frameId:"dessin", cats:["salon"], desc:"Dessine un personnage très vite sur ton téléphone. Tes amis doivent deviner qui c'est.", rules:["Tu as 30 secondes pour dessiner un personnage célèbre sur ton écran.","Montre vite le résultat à tes copains.","Ils doivent deviner de qui il s'agit, même si c'est très moche !"], example:{label:"On fait un essai :", text:"Tu essaies de dessiner Pikachu mais ça ressemble à un citron avec des oreilles. Tes amis vont bien rigoler."} },
+  { id:18, v:10, name:"En Couple ou Pas ?", ico:"💞", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Est-ce que ces deux personnages d'anime feraient un bon couple amoureux ?", rules:["On vous donne les noms de deux personnages.","Vous devez dire 'OUI' s'ils iraient bien ensemble, ou 'NON' si c'est une mauvaise idée.","Chacun doit expliquer pourquoi !"], example:{label:"On fait un essai :", text:"Naruto et Nami de One Piece. OUI ou NON ? À vous d'en débattre !"} },
+  { id:19, v:7, name:"Refais la Fin", ico:"🔄", color:"c-green", frameId:"salon", cats:["salon"], desc:"Invente une fin complètement différente pour un manga que tu connais par cœur.", rules:["Prenez un anime très célèbre.","Vous avez 20 secondes pour réfléchir à une fin totalement différente et rigolote.","Racontez-la tour à tour."], example:{label:"On fait un essai :", text:"Et si, à la fin de Naruto, c'était Sasuke qui devenait le Hokage à sa place ?"} },
+  { id:20, v:10, name:"Le Grand Tournoi", ico:"🏅", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Qui est le personnage le plus fort ? Organisez des duels pour le savoir.", rules:["Choisissez 8 de vos personnages d'anime préférés.","Faites-les s'affronter deux par deux (exemple : Naruto VS Ichigo).","Votez pour celui qui gagne jusqu'à ce qu'il n'en reste plus qu'un : le grand champion !"], example:{label:"On fait un essai :", text:"Duel final : Goku VS Saitama. Argumentez bien fort pour choisir le vainqueur !"} },
+  { id:21, v:7, name:"Trouve le Mensonge", ico:"🃏", color:"c-purple", frameId:"emission", cats:["emission"], desc:"L'animateur donne trois infos sur un manga. Deux sont vraies, une est fausse.", rules:["L'animateur lit 3 petites histoires sur un personnage.","Les joueurs doivent réfléchir ensemble pour trouver laquelle est un pur mensonge.","Il faut se mettre d'accord sur une seule réponse."], example:{label:"On fait un essai :", text:"1. Pikachu est jaune. 2. Il a une queue en éclair. 3. Il adore sa Pokéball. Le mensonge est le 3 !"} },
+  { id:22, v:9, name:"Crée ton Équipe de Choc", ico:"💸", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Tu as un petit budget pour acheter des personnages et créer la meilleure équipe.", rules:["On vous donne 15 euros virtuels.","Achetez des personnages sur l'image affichée (les plus forts coûtent 5€, les nuls coûtent 1€).","Ne dépassez pas votre budget et montrez vos équipes."], example:{label:"On fait un essai :", text:"Goku coûte trop cher, tu dois acheter 15 petits bonshommes nuls à 1€ pour te défendre !"} },
+  { id:23, v:8, name:"Traduction Bizarre", ico:"📜", color:"c-blue", frameId:"emission", cats:["emission"], desc:"On a traduit un opening d'anime en français, et ça ne veut plus rien dire.", rules:["L'animateur lit les paroles d'un générique japonais traduit en français mot pour mot.","La phrase va sembler complètement absurde.","Dès que tu as reconnu la vraie chanson, lève la main !"], example:{label:"On fait un essai :", text:"'Le bleu oiseau vole dans le ciel cassé'. C'est le générique Blue Bird (Naruto) !"} },
+  { id:24, v:8, name:"Qui suis-je ?", ico:"🤔", color:"c-cyan", frameId:"salon", cats:["salon"], desc:"Tu as un post-it imaginaire sur le front avec un nom d'anime. Devine de qui il s'agit.", rules:["Un joueur ne connaît pas le personnage d'anime qui est écrit sur son propre front.","Il doit poser des questions aux autres (Suis-je un ninja ? Suis-je un pirate ?).","Les autres répondent par OUI ou NON. Trouve la réponse en moins d'une minute !"], example:{label:"On fait un essai :", text:"'Est-ce que j'ai les cheveux verts ?' (Oui) 'J'utilise 3 épées ?' (Oui) -> Je suis Zoro !"} },
+  { id:25, v:7, name:"Explique à ta Maman", ico:"📺", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Raconte un anime très compliqué sans utiliser de mots otaku.", rules:["On te donne un anime avec des combats ou des pouvoirs.","Tu dois le raconter sans dire de mots japonais ou otaku (interdit de dire magie, chakra, nen, ninja).","Si tu dis un mot compliqué, tu as perdu."], example:{label:"On fait un essai :", text:"Explique My Hero Academia : 'C'est un garçon sans pouvoir qui avale un cheveu pour devenir fort'."} },
+  { id:26, v:8, name:"La Meilleure Réponse", ico:"📊", color:"c-yellow", frameId:"emission", cats:["emission"], desc:"Trouve l'anime ou le manga que presque tout le monde a cité dans la rue.", rules:["L'animateur pose une question générale (exemple: Quel est l'anime de ninjas le plus connu ?).","Vous devez essayer de deviner ce que la majorité des gens ont répondu.","Si vous donnez une mauvaise réponse, l'animateur met une croix (X). 3 croix = perdu !"], example:{label:"On fait un essai :", text:"'Quel est l'anime de pirates le plus connu ?' Tu réponds : 'One Piece !' Bravo, réponse n°1 !"} },
+  { id:27, v:10, name:"Le Classement Piège", ico:"🙈", color:"c-red", frameId:"salon", cats:["salon"], desc:"Place les personnages d'anime de 1 à 5 sans savoir qui sera tiré au sort ensuite !", rules:["L'animateur te montre un personnage à la fois.","Tu dois décider tout de suite si tu le mets en 1er (meilleur) ou 5ème (pire).","Tu n'as pas le droit de changer de place plus tard !"], example:{label:"On fait un essai :", text:"Tu mets Sakura à la 2ème place. Soudain, l'animateur montre Zoro, mais la 1ère place est prise ! Dommage !"} },
+  { id:28, v:7, name:"Le Plus de Mots en 30s", ico:"⏳", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"Fais deviner un maximum de personnages à ton ami avec UN SEUL MOT à chaque fois.", rules:["L'animateur a une liste de 10 personnages.","Le Joueur 1 dit UN seul mot pour faire deviner. Le Joueur 2 doit trouver la réponse.","Si le Joueur 2 ne sait pas, on passe au mot suivant. Faites le meilleur score en 30 secondes."], example:{label:"On fait un essai :", text:"Joueur 1 dit : 'Pirate'. Joueur 2 répond : 'Luffy !'. Point gagné, suivant !"} },
+  { id:29, v:6, name:"Le Juste Chiffre", ico:"💰", color:"c-green", frameId:"emission", cats:["emission"], desc:"Trouve le nombre exact dans un manga en écoutant les indices : C'est plus ! C'est moins !", rules:["L'animateur pose une question avec un nombre en réponse (ex: le nombre d'épisodes de One Piece).","Les joueurs donnent des chiffres au hasard.","L'animateur les guide en disant 'C'est plus !' ou 'C'est moins !' jusqu'à trouver le bon chiffre."], example:{label:"On fait un essai :", text:"Tu dis 500. Il dit 'C'est plus'. Tu dis 1000. Il dit 'C'est plus'. On y est presque !"} },
+  { id:30, v:10, name:"Cherchez l'Intrus", ico:"🧩", color:"c-purple", frameId:"salon", cats:["salon"], desc:"Regardez bien les 4 personnages d'anime à l'écran. L'un d'eux n'a rien à faire ici !", rules:["L'animateur lance le mode jeu qui affiche 4 personnages sur son téléphone.","Il tourne son téléphone vers les autres joueurs.","Trois des personnages ont un point commun. Le quatrième est l'intrus.","Le premier joueur qui trouve l'intrus et explique pourquoi a gagné."], example:{label:"On fait un essai :", text:"Goku, Vegeta, Trunks et Pikachu. L'intrus est Pikachu, il n'est pas dans Dragon Ball !"},
+    playData: [
+      { options: [{ name: "Goku", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Goku" }, { name: "Vegeta", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Vegeta" }, { name: "Piccolo", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Piccolo" }, { name: "Luffy", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Luffy" }], intruder: "Luffy", explanation: "Luffy est l'intrus ! C'est le seul qui ne vient pas de Dragon Ball." },
+      { options: [{ name: "Kakashi", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Kakashi" }, { name: "Gojo", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Gojo" }, { name: "Aizawa", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Aizawa" }, { name: "Naruto", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Naruto" }], intruder: "Naruto", explanation: "Naruto est l'intrus ! C'est le seul prof/sensei qui ne cache pas ses yeux sous des bandages/masques." },
+      { options: [{ name: "Zoro", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Zoro" }, { name: "Sasuke", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Sasuke" }, { name: "Trunks", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Trunks" }, { name: "Sanji", img: "https://placehold.co/150x150/1a1d2d/ffffff?text=Sanji" }], intruder: "Sanji", explanation: "Sanji est l'intrus ! C'est le seul qui n'utilise pas d'épée pour se battre (il utilise ses pieds)." }
+    ]
+  },
+  { id:31, v:9, name:"Chante la Suite", ico:"🎤", color:"c-blue", frameId:"emission", cats:["emission"], desc:"L'opening va s'arrêter d'un coup. À toi de continuer à chanter !", rules:["L'animateur met une musique de générique d'anime très connue.","Au bout de 5 secondes, il coupe le son complètement.","Le premier joueur qui chante la suite sans se tromper marque un point."], example:{label:"On fait un essai :", text:"'Je serai le meilleur dresseur, je me battrai sans...' Le son coupe ! À toi de crier 'RÉPIT' !"} },
+  { id:32, v:10, name:"C'est un 10 mais...", ico:"🚩", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Le héros est super, MAIS il a un énorme défaut. Quelle note lui donnes-tu ?", rules:["Un joueur dit : 'Ce personnage a tout pour plaire (10/10), MAIS... il mange tout ton frigo.'","Les deux autres amis doivent lui donner une nouvelle note entre 0 et 10.","Discutez pour savoir si le défaut est grave ou pas dans un anime."], example:{label:"On fait un essai :", text:"C'est un 10/10, mais il vide ton frigo entier en 2 minutes comme Goku. Moi je lui mets 4/10 !"} },
+  { id:33, v:7, name:"Les Mots Liés", ico:"🕵️", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"Trouve plusieurs personnages de mangas qui vont ensemble grâce à un seul mot indice.", rules:["Il y a plein de personnages affichés au tableau.","L'animateur donne UN SEUL MOT et UN CHIFFRE (Exemple : Épée - 2).","Les joueurs doivent trouver les 2 personnages qui utilisent une épée."], example:{label:"On fait un essai :", text:"Indice 'Feu - 2'. Vous devez toucher la photo de Natsu et de Ace pour gagner !"} },
+  { id:34, v:8, name:"L'Histoire en Emojis", ico:"📱", color:"c-yellow", frameId:"salon", cats:["salon"], desc:"Devine de quel anime on parle en regardant juste 3 emojis.", rules:["Des petits emojis s'affichent à l'écran (des animaux, des objets...).","Tu dois comprendre quel anime célèbre ils racontent.","Sois le plus rapide à crier le titre de l'œuvre !"], example:{label:"On fait un essai :", text:"🦊🍥🍜 (Un renard, un tourbillon, un bol de nouilles). C'est Naruto !"} },
+  { id:35, v:9, name:"Tu Préfères ?", ico:"⚖️", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Choisis entre deux choses horribles liées aux animes. Attention, les deux sont terribles !", rules:["L'animateur vous pose une question 'Tu préfères...'.","Vous devez choisir la solution numéro 1 ou la numéro 2.","Vous devez expliquer à vos amis pourquoi vous avez fait ce choix."], example:{label:"On fait un essai :", text:"Tu préfères ne plus jamais regarder d'anime de ta vie OU ne manger que des légumes pour toujours ?"} },
+  { id:36, v:6, name:"La Chaîne des Mots", ico:"🔗", color:"c-green", frameId:"salon", cats:["salon"], desc:"Enchaîne les noms d'animes en utilisant la dernière lettre du mot précédent.", rules:["Un joueur dit un nom de personnage ou d'anime.","Le joueur d'après doit dire un mot qui commence par la DERNIÈRE lettre du mot d'avant.","Le premier qui réfléchit trop longtemps ou qui répète un mot a perdu."], example:{label:"On fait un essai :", text:"NarutO -> One piecE -> EvangelioN -> Narut... (Perdu, tu as répété !) "} },
+  { id:37, v:9, name:"Baisse un Doigt si...", ico:"🤚", color:"c-pink", frameId:"emission", cats:["emission"], desc:"Lève tes 10 doigts. Baisse-en un à chaque fois que tu as fait ce que dit l'animateur Otaku.", rules:["Levez les deux mains (10 doigts) devant vous.","L'animateur lit une liste de choses que font tous les fans d'anime (comme faire un Kamehameha).","Si vous l'avez déjà fait, baissez un doigt. Le gagnant est celui à qui il reste le plus de doigts !"], example:{label:"On fait un essai :", text:"Baisse un doigt si tu as déjà couru en mettant les bras en arrière comme un ninja de Konoha !"} },
+  { id:38, v:8, name:"Défends le Méchant", ico:"😈", color:"c-purple", frameId:"salon", cats:["salon"], desc:"Tu vas devoir défendre le pire méchant d'un anime, et lui trouver des qualités !", rules:["L'animateur désigne le pire méchant d'un anime.","Un joueur a 30 secondes pour faire comme s'il était son avocat et dire qu'il est gentil au fond.","Les autres donnent une note sur 10 à ton spectacle."], example:{label:"On fait un essai :", text:"Défends Freezer : 'Il détruit des planètes, oui, mais il est toujours très poli !'"} },
+  { id:39, v:10, name:"Prends-le ou Laisse-le", ico:"🚪", color:"c-red", frameId:"salon", cats:["salon"], desc:"Tu montes ton propre équipage. Tu l'acceptes dans l'équipe ou tu le rejettes ?", rules:["Une image de personnage de manga apparaît à l'écran.","Tu dois dire 'Je prends' s'il est utile pour ton équipe, ou 'Je laisse' s'il est trop faible.","Tu dois toujours expliquer pourquoi à tes copains."], example:{label:"On fait un essai :", text:"Levi de L'Attaque des Titans ? 'Je le prends, c'est le plus fort !'"} },
+  { id:40, v:9, name:"Rafale d'Indices", ico:"⏱️", color:"c-blue", frameId:"emission", cats:["emission"], desc:"L'animateur lit plein d'indices sur un anime sans s'arrêter. Sois le premier à l'interrompre !", rules:["L'animateur lit une description en commençant par les trucs les plus difficiles.","Il parle de plus en plus vite.","Dès que tu sais de qui il s'agit, crie le nom ! Si tu as faux, tu passes ton tour."], example:{label:"On fait un essai :", text:"'Je suis jaune, j'ai les joues rouges, mon attaque c'est l'éclair...' Pikachu !"} },
+  { id:41, v:10, name:"L'Image Zoomée", ico:"🔍", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"L'image de l'anime est grossie au max. Tu ne vois qu'un tout petit détail. Qu'est-ce que c'est ?", rules:["L'écran affiche une image tellement zoomée qu'on ne voit que des pixels de couleur.","Essayez de deviner de quoi il s'agit.","L'animateur va dézoomer (reculer) petit à petit pour vous aider."], example:{label:"On fait un essai :", text:"On voit juste un bout de paille jaune. En reculant, on découvre que c'était le chapeau de Luffy !"} },
+  { id:42, v:9, name:"Pari Otaku", ico:"🔨", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Dis à tes amis combien de choses d'anime tu es capable de citer, et prouve-le !", rules:["L'animateur donne un thème. Joueur A dit 'Moi, je peux en citer 3'.","Le Joueur B peut dire : 'Moi je peux en citer 5 !'","Le Joueur A peut dire 'Prouve-le !'. Le Joueur B doit alors citer les 5 pour gagner."], example:{label:"On fait un essai :", text:"'Cite-moi des épéistes'. 'Moi je peux en citer 4 !' -> Prouve-le ! -> Zoro, Kirito, Trunks, Erza. Gagné !"} },
+  { id:43, v:6, name:"Détecteur de Mensonges", ico:"🤥", color:"c-green", frameId:"salon", cats:["salon"], desc:"Raconte une histoire sur toi et les mangas, et tes amis doivent savoir si tu mens ou non.", rules:["Un joueur raconte une petite histoire personnelle à ses amis en rapport avec les mangas.","Les autres posent pleins de questions pour voir si le joueur hésite ou bégaye.","À la fin, ils votent : 'C'est Vrai' ou 'C'est Faux'."], example:{label:"On fait un essai :", text:"'J'ai déjà essayé de faire un Kamehameha dans ma chambre quand j'étais seul'. Vrai ou Mytho ?"} },
+  { id:44, v:9, name:"La Roue Infernale", ico:"🎲", color:"c-yellow", frameId:"emission", cats:["emission"], desc:"Un personnage de manga est tiré au sort, tu dois tout de suite l'imiter ou faire son attaque !", rules:["Une petite roue (ou un filtre) tourne au-dessus de ta tête sur l'écran.","Dès qu'elle s'arrête sur une image, l'animateur te donne un ordre ('Imite-le !').","Tu as 3 secondes pour obéir sans avoir honte."], example:{label:"On fait un essai :", text:"La roue s'arrête sur Naruto. L'animateur dit : 'Fais son attaque !' Tu dois crier RASENGAN !"} },
+  { id:45, v:6, name:"La Devinette Secrète", ico:"🗿", color:"c-purple", frameId:"emission", cats:["emission"], desc:"Écoute bien la devinette sous forme de petite poésie pour trouver le nom du personnage.", rules:["L'animateur lit un petit poème ou une phrase mystérieuse sur un anime.","Interdiction de répondre avant qu'il n'ait fini de parler !","Réfléchissez bien avant de donner votre réponse finale."], example:{label:"On fait un essai :", text:"'Je suis vert, j'exauce les vœux et ressemble à un serpent volant.' Le dragon Shenron !"} },
+  { id:46, v:9, name:"Le Top 10", ico:"🔟", color:"c-blue", frameId:"emission", cats:["emission"], desc:"Trouvez les 10 réponses d'un classement officiel avant de perdre toutes vos vies.", rules:["L'animateur annonce un Top 10 (ex: Les mangas les plus vendus).","Les joueurs donnent des réponses à tour de rôle.","S'ils trouvent tout, ils gagnent. À la 3ème erreur, la partie est finie !"], example:{label:"On fait un essai :", text:"'Top 10 des primes dans One Piece !' Tu réponds Zoro ? C'est bon, il est 6ème !"} },
+  { id:47, v:10, name:"Qui Gagne le Combat ?", ico:"⚔️", color:"c-red", frameId:"salon", cats:["salon"], desc:"Deux personnages très forts s'affrontent. Qui gagne ? À vous de décider.", rules:["L'animateur affiche deux personnages de dessins animés différents.","Les joueurs ont 1 minute pour dire qui gagnerait dans une vraie bagarre.","Il faut donner de bons arguments pour convaincre les autres !"], example:{label:"On fait un essai :", text:"Goku (Dragon Ball) contre Saitama (One Punch Man). Lequel des deux va gagner ?"} },
+  { id:48, v:10, name:"Serre-moi la main", ico:"🤝", color:"c-green", frameId:"emission", cats:["emission"], desc:"Si tu es d'accord avec mon avis, sers-moi la main. Sinon, refuse !", rules:["L'animateur donne un avis très fort sur un anime.","Si le joueur est d'accord, il lui serre la main.","S'il n'est pas d'accord, il refuse de lui serrer la main et explique pourquoi."], example:{label:"On fait un essai :", text:"'Luffy est un meilleur héros que Naruto'. Tu me sers la main ou tu refuses ?"} },
+  { id:49, v:8, name:"Le Pari du Top 10", ico:"💸", color:"c-orange", frameId:"emission", cats:["emission"], desc:"Parier combien d'animes du Top 10 on peut citer sans faire une seule erreur.", rules:["L'animateur annonce le thème du Top 10.","Joueur A dit 'J'en ai 3'. Joueur B dit 'J'en ai 5'.","Si B dit 'Prouve-le !', A doit en citer 5. S'il y arrive, il gagne tous les points."], example:{label:"On fait un essai :", text:"Top 10 des personnages les plus intelligents. 'Je peux en donner 4 !' Vas-y, cite-les !"} },
+  { id:50, v:8, name:"Le Tape m'en 5", ico:"✋", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Taper dans la main si c'est génial. Se tourner le dos si c'est nul.", rules:["L'animateur cite un arc d'anime ou un personnage.","Si le joueur adore, il fait un High Five. S'il déteste, il fait un pouce en bas.","On explique ensuite pourquoi c'est un chef-d'œuvre ou un raté."], example:{label:"On fait un essai :", text:"'L'arc Marineford dans One Piece'. High Five ? Évidemment !"} },
+  { id:51, v:10, name:"Le Combat Truqué", ico:"🤡", color:"c-red", frameId:"salon", cats:["salon"], desc:"Qui gagne ce combat, sachant qu'un des deux a un énorme handicap de départ ?", rules:["Deux personnages s'affrontent, mais l'un des deux reçoit un malus affreux.","Les joueurs doivent débattre pour savoir si le héros peut gagner malgré son désavantage."], example:{label:"On fait un essai :", text:"Goku contre Saitama... MAIS Goku a les mains attachées dans le dos. Qui gagne ?"} },
+  { id:52, v:8, name:"Le Boulet de l'Équipe", ico:"💣", color:"c-purple", frameId:"salon", cats:["salon"], desc:"Quatre personnages forment l'équipe parfaite. Le cinquième gâche tout.", rules:["5 personnages sont affichés à l'écran.","Ils sont censés faire une mission ensemble, mais l'un d'eux est un vrai boulet.","Il faut deviner lequel va faire rater la mission."], example:{label:"On fait un essai :", text:"Équipe discrétion : Itachi, Kakashi, Aizawa, L et... Naruto ! Naruto est le boulet, il fait trop de bruit !"} },
+  { id:53, v:8, name:"La Boîte à Bruitages", ico:"🔊", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"Fais deviner un anime ou une attaque en utilisant que des bruits avec ta bouche.", rules:["Le joueur tire un nom d'anime ou de pouvoir secret.","Il doit l'imiter en faisant seulement des bruitages (pshiooo, bam, tatata).","Les autres doivent deviner de quel anime ça vient."], example:{label:"On fait un essai :", text:"Le joueur fait 'Chidori ! vvvvvvvvt !' Tes copains doivent crier 'Sasuke !'"} },
+  { id:54, v:8, name:"Le Zéro Pointé, Mais...", ico:"🗑️", color:"c-yellow", frameId:"salon", cats:["salon"], desc:"Le personnage est nul (0/10). Trouvez-lui UNE SEULE qualité pour le sauver.", rules:["L'animateur montre le pire personnage de l'histoire des animes.","Les joueurs doivent se creuser la tête pour lui trouver au moins une petite qualité."], example:{label:"On fait un essai :", text:"'Mineta de My Hero Academia est nul, MAIS... ses boules violettes collent bien.'"} },
+  { id:55, v:9, name:"Survivants à 10 Balles", ico:"🧟", color:"c-green", frameId:"salon", cats:["salon"], desc:"C'est l'apocalypse zombie ! Achète tes 3 compagnons de survie avec 10 euros.", rules:["Une grille de personnages avec des prix s'affiche.","Tu as seulement 10€ pour recruter 3 personnages pour te protéger des zombies.","Montrez vos équipes de survivants !"], example:{label:"On fait un essai :", text:"Je prends Levi à 5€, Usopp à 1€ et Sakura à 4€. J'espère survivre !"} },
+  { id:56, v:8, name:"Théorie ou Vérité ?", ico:"🤯", color:"c-blue", frameId:"emission", cats:["emission"], desc:"L'animateur te raconte une histoire folle. Serre la main si c'est vrai, tape la table si c'est faux.", rules:["L'animateur lit une théorie trouvée sur internet.","Si le joueur pense que le créateur du manga a confirmé que c'était vrai, il serre la main.","Si c'est juste une théorie inventée par les fans, il tape la table."], example:{label:"On fait un essai :", text:"'Crocodile dans One Piece était une femme avant.' Vrai ou Faux ?"} },
+  { id:57, v:8, name:"La Patate Chaude Anime", ico:"🥔", color:"c-red", frameId:"emission", cats:["emission"], desc:"Un thème est donné, il faut citer un personnage en 1 seconde chacun !", rules:["L'animateur donne un thème.","Joueur A donne un nom, puis Joueur B, puis Joueur A... sans s'arrêter.","Le premier qui réfléchit plus d'une seconde a perdu !"], example:{label:"On fait un essai :", text:"'Un ninja !' -> Naruto -> Sasuke -> Kakashi -> ... Euh... Perdu !"} },
+  { id:58, v:9, name:"Le Portrait Robot", ico:"🎨", color:"c-pink", frameId:"dessin", cats:["salon"], desc:"L'animateur décrit un personnage d'anime, le joueur le dessine sans savoir qui c'est.", rules:["L'animateur regarde un personnage et donne des détails ('Il a des cheveux en pointe', 'Il a une cicatrice').","Le joueur dessine en même temps sur son écran.","À la fin, on compare le dessin avec le vrai personnage !"], example:{label:"On fait un essai :", text:"Tu as dessiné un bonhomme avec une cicatrice en croix... Ah c'était Kenshin !"} },
+  { id:59, v:6, name:"L'Arc-en-Ciel Anime", ico:"🌈", color:"c-cyan", frameId:"salon", cats:["salon"], desc:"Enchaîner les personnages en suivant l'ordre des couleurs de l'arc-en-ciel.", rules:["L'animateur dit : 'Rouge'. Joueur 1 donne un perso avec du rouge.","Joueur 2 doit trouver un perso avec du 'Orange'.","On fait Bleu, Vert, Violet... Le premier qui n'a pas d'idée perd."], example:{label:"On fait un essai :", text:"Rouge : Natsu. Vert : Zoro. Bleu : Bulma. Violet : ... Trunks !"} },
+  { id:60, v:8, name:"Le Choc des Nuls", ico:"🐢", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Les deux pires combattants s'affrontent. Qui réussira à perdre en premier ?", rules:["L'animateur présente deux personnages connus pour être faibles ou très peureux.","Les joueurs doivent expliquer qui gagnerait ce combat misérable."], example:{label:"On fait un essai :", text:"Usopp contre Baggy le Clown. Qui gagne cette bataille légendaire ?"} },
+  { id:61, v:7, name:"L'Enchère Mystère", ico:"🕵️", color:"c-purple", frameId:"emission", cats:["emission"], desc:"Pariez sur le nombre d'indices dont vous avez besoin pour deviner le personnage.", rules:["L'animateur dit qu'il a 3 indices sur un personnage.","Joueur A dit 'Je le trouve avec 2 indices'. Joueur B dit 'Avec 1 seul indice !'","L'animateur lit le 1er indice. Si Joueur B trouve, il gagne !"], example:{label:"On fait un essai :", text:"Indice 1 : Je suis élastique. Tu as deviné avec un seul indice, bravo Luffy !"} },
+  { id:62, v:8, name:"Amis ou Ennemis ?", ico:"⚔️", color:"c-blue", frameId:"salon", cats:["salon"], desc:"Si ces deux héros se rencontraient, est-ce qu'ils deviendraient amis ou ennemis mortels ?", rules:["L'animateur montre deux héros de deux animes différents.","Les joueurs doivent décider s'ils pourraient s'entendre.","Il faut expliquer pourquoi en se basant sur leurs caractères."], example:{label:"On fait un essai :", text:"Naruto et Sasuke... ah non, Goku et Light Yagami. Clairement ennemis !"} },
+  { id:63, v:8, name:"Le Karaoké Muet", ico:"🤐", color:"c-yellow", frameId:"emission", cats:["emission"], desc:"Chante le générique... mais arrête-toi sur le mot interdit !", rules:["L'animateur met la musique d'un opening et coupe le son.","Le joueur doit chanter. L'animateur a écrit UN mot interdit sur l'ardoise (ex: le mot 'Blue').","Le joueur doit faire 'chuut' à la place de ce mot, sinon il perd."], example:{label:"On fait un essai :", text:"'Aoi aoi ano sora...'. Si tu dis Aoi (Bleu), tu as perdu !"} },
+  { id:64, v:9, name:"Le Bingo du Fan", ico:"🎯", color:"c-green", frameId:"emission", cats:["emission"], desc:"C'est l'inverse ! Ne baisse pas le doigt, lève-le fièrement pour chaque chose otaku réussie.", rules:["L'animateur cite 10 actions épiques de vrais fans d'animes.","Les joueurs commencent avec les poings fermés.","À chaque chose qu'ils ont faite, ils lèvent un doigt. Celui qui a le plus de points gagne."], example:{label:"On fait un essai :", text:"'Lève un doigt si tu as déjà regardé un anime en entier en une seule nuit !'"} },
+  { id:65, v:6, name:"L'Énigme Impossible", ico:"🤯", color:"c-red", frameId:"salon", cats:["salon"], desc:"Fais deviner un personnage avec une énigme, mais SANS utiliser les 3 mots faciles.", rules:["Le joueur prépare une énigme dans sa tête pour un personnage.","MAIS l'animateur lui a retiré les 3 mots les plus faciles pour l'aider.","Le joueur doit faire rimer son énigme pour la rendre classe."], example:{label:"On fait un essai :", text:"Goku sans dire 'Saiyan', 'Boule', 'Super'. -> 'Je viens de l'espace, mes cheveux deviennent dorés...'"} },
+  { id:66, v:9, name:"Draft des Vilains", ico:"🦇", color:"c-pink", frameId:"salon", cats:["salon"], desc:"Tu as 15 euros. Achète les meilleurs méchants pour conquérir le monde.", rules:["Une grille s'affiche avec uniquement les pires antagonistes d'animes.","Les plus forts valent 5€, les plus faibles 1€.","Construisez la meilleure alliance maléfique !"], example:{label:"On fait un essai :", text:"Je prends Freezer (5€), Orochimaru (3€) et Pain (4€). Le monde est à moi !"} },
+  { id:67, v:7, name:"Le Top 10 à l'Envers", ico:"🙃", color:"c-cyan", frameId:"emission", cats:["emission"], desc:"Trouve les personnages qui sont tout en bas du classement !", rules:["L'animateur donne un Top 10 officiel.","MAIS les joueurs doivent deviner le personnage classé 10ème, puis le 9ème... jusqu'au 1er.","C'est beaucoup plus dur de trouver qui est le moins aimé !"], example:{label:"On fait un essai :", text:"Le 10ème meilleur joueur de foot dans Blue Lock. Qui est-ce ?"} },
+  { id:68, v:8, name:"Pari des Armes", ico:"🗡️", color:"c-orange", frameId:"salon", cats:["salon"], desc:"Pariez sur le nombre de personnages que vous connaissez qui utilisent la MÊME arme.", rules:["L'animateur donne un type d'arme très précis (ex: Des faux, des fouets, de l'eau).","Les joueurs parient combien ils peuvent en citer.","Le joueur au pari le plus haut doit les lister."], example:{label:"On fait un essai :", text:"'Les personnages qui se battent avec de l'eau'. Je peux en citer 3 ! Jinbei, Kisame, Juvia !"} }
 ];
 
 let favorites = JSON.parse(localStorage.getItem('anishow_favs')) || [];
 let currentFilter = 'all';
+let currentSort = 'id';
 
 function toggleFav(id, event) {
   event.stopPropagation();
@@ -479,17 +398,45 @@ function toggleFav(id, event) {
   else { favorites.push(id); }
   localStorage.setItem('anishow_favs', JSON.stringify(favorites));
   render();
-  const activeBtn = document.querySelector('.f-btn.active');
-  if (activeBtn) filter(currentFilter, activeBtn);
+}
+
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+  render();
+}
+
+function setSort(sortType) {
+  currentSort = sortType;
+  render();
 }
 
 function render() {
+  let displayedGames = GAMES.filter(g => {
+    if (currentFilter === 'all') return true;
+    if (currentFilter === 'fav') return favorites.includes(g.id);
+    return g.cats.includes(currentFilter);
+  });
+
+  if (currentSort === 'viral') {
+    displayedGames.sort((a, b) => (b.v - a.v) || (a.id - b.id));
+  } else {
+    displayedGames.sort((a, b) => a.id - b.id);
+  }
+
   const grid = document.getElementById('grid');
-  grid.innerHTML = GAMES.map(g => {
+  grid.innerHTML = displayedGames.map(g => {
     const frame = FRAMINGS[g.frameId];
     const isFav = favorites.includes(g.id);
+    
+    let viralClass = 'pill-viral-mid';
+    let viralIcon = '📈';
+    if (g.v === 10) { viralClass = 'pill-viral-10'; viralIcon = '🔥'; }
+    else if (g.v >= 8) { viralClass = 'pill-viral-high'; viralIcon = '🚀'; }
+    
     return `
-    <div class="card ${g.color}" data-id="${g.id}" data-cats="${g.cats.join(',')}" onclick="openModal(${g.id})">
+    <div class="card ${g.color}" data-id="${g.id}" onclick="openModal(${g.id})">
       <div class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFav(${g.id}, event)">❤️</div>
       <div class="card-header">
         <div class="card-ico">${g.ico}</div>
@@ -499,6 +446,7 @@ function render() {
       <div class="card-desc">${g.desc}</div>
       <div class="frame-pills">
         <span class="pill">${frame.icon} ${frame.name}</span>
+        <span class="pill ${viralClass}">${viralIcon} Viralité : ${g.v}/10</span>
       </div>
       <div class="card-footer">
         <span class="see-btn">Lancer le jeu</span>
@@ -516,9 +464,14 @@ function openModal(id) {
 
   document.getElementById('m-ico').textContent = g.ico;
   document.getElementById('m-title').textContent = g.name;
-  document.getElementById('m-sub').textContent = `Optimisé pour TikTok 9:16 • Concept #${g.id}`;
   
-  // Remplacer le contenu du template de manière sûre pour Safari iOS (innerHTML sur une div parente)
+  let viralClass = 'pill-viral-mid';
+  let viralIcon = '📈';
+  if (g.v === 10) { viralClass = 'pill-viral-10'; viralIcon = '🔥'; }
+  else if (g.v >= 8) { viralClass = 'pill-viral-high'; viralIcon = '🚀'; }
+  
+  document.getElementById('m-viral-pill').innerHTML = `Optimisé pour TikTok 9:16 • Concept #${g.id} <br><br> <span class="pill ${viralClass}" style="border-radius:100px; padding: 6px 12px; margin-top:4px; display:inline-block; font-size:0.9rem;">${viralIcon} Potentiel Viral : ${g.v}/10</span>`;
+  
   const templateNode = document.getElementById(frame.id).content.cloneNode(true);
   const svgContainer = document.getElementById('f-svg');
   svgContainer.innerHTML = '';
@@ -544,6 +497,13 @@ function openModal(id) {
     </div>
   `).join('');
 
+  const btnContainer = document.getElementById('play-btn-container');
+  if(g.playData) {
+    btnContainer.innerHTML = `<button class="play-btn" onclick="startPlayMode(${g.id})">🎮 Lancer l'écran de jeu</button>`;
+  } else {
+    btnContainer.innerHTML = '';
+  }
+
   document.getElementById('overlay').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
@@ -555,24 +515,80 @@ function closeModal(e) {
   }
 }
 
-function filter(cat, btn) {
-  currentFilter = cat;
-  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
-  if (btn) btn.classList.add('active');
+/* LOGIQUE DU MODE JEU */
+let currentPlayData = [];
+let currentPlayIndex = 0;
+
+function startPlayMode(gameId) {
+  const g = GAMES.find(x => x.id === gameId);
+  if(!g || !g.playData) return;
   
-  document.querySelectorAll('.card').forEach(c => {
-    const id = parseInt(c.dataset.id);
-    if (cat === 'all') { 
-      c.style.display = ''; 
-    } else if (cat === 'fav') {
-      c.style.display = favorites.includes(id) ? '' : 'none';
-    } else {
-      c.style.display = c.dataset.cats.split(',').includes(cat) ? '' : 'none';
-    }
-  });
+  currentPlayData = g.playData;
+  currentPlayIndex = 0;
+  
+  document.getElementById('play-title').textContent = g.name;
+  document.getElementById('overlay').classList.remove('open'); 
+  document.getElementById('play-overlay').classList.add('open'); 
+  
+  loadPlayQuestion();
 }
 
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+function loadPlayQuestion() {
+  const data = currentPlayData[currentPlayIndex];
+  const grid = document.getElementById('play-grid');
+  
+  grid.className = 'play-grid';
+  document.getElementById('play-explanation').className = 'play-explanation';
+  document.getElementById('btn-reveal').style.display = 'block';
+  document.getElementById('btn-next').style.display = 'none';
+
+  grid.innerHTML = data.options.map(opt => `
+    <div class="play-option" data-name="${opt.name}">
+       <img src="${opt.img}" alt="${opt.name}">
+       <span>${opt.name}</span>
+    </div>
+  `).join('');
+  
+  document.getElementById('play-explanation').textContent = data.explanation;
+}
+
+function revealAnswer() {
+  const data = currentPlayData[currentPlayIndex];
+  const grid = document.getElementById('play-grid');
+  
+  grid.classList.add('revealed');
+  
+  const options = grid.querySelectorAll('.play-option');
+  options.forEach(opt => {
+    if(opt.dataset.name === data.intruder) {
+      opt.classList.add('is-intruder');
+    }
+  });
+
+  document.getElementById('play-explanation').classList.add('show');
+  document.getElementById('btn-reveal').style.display = 'none';
+  
+  if(currentPlayIndex < currentPlayData.length - 1) {
+    document.getElementById('btn-next').style.display = 'block';
+  }
+}
+
+function nextQuestion() {
+  currentPlayIndex++;
+  loadPlayQuestion();
+}
+
+function closePlayMode() {
+  document.getElementById('play-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { 
+  if (e.key === 'Escape') {
+    closeModal();
+    closePlayMode();
+  }
+});
 render();
 </script>
 </body>
